@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
@@ -133,6 +134,30 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               className="w-full h-full object-cover"
               poster="/avatar.png"
             />
+          </div>
+        ) : project.image ? (
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 group/preview">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 900px"
+              priority
+            />
+            {project.liveUrl && (
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover/preview:opacity-100 transition-opacity flex items-end p-6">
+                <Link
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-white text-zinc-950 font-semibold text-xs tracking-wide flex items-center gap-2 shadow-lg hover:bg-zinc-100 press-feedback"
+                >
+                  <span>Open Live Application ({new URL(project.liveUrl).hostname})</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
           </div>
         ) : (
           <div className="aspect-[16/9] w-full flex flex-col items-center justify-center p-8 bg-zinc-50 dark:bg-zinc-950/40 text-center space-y-4">

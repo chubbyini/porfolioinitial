@@ -26,6 +26,7 @@ export interface Project {
   readonly liveUrl?: string;
   readonly githubUrl?: string;
   readonly videoDemoUrl?: string;
+  readonly image?: string;
   readonly problem: string;
   readonly architecture: string;
   readonly results: string;

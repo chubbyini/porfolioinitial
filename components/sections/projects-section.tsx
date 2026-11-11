@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ExternalLink,
   Github,
@@ -25,6 +26,15 @@ export function ProjectsSection() {
     if (activeCategory === "all") return projectsData;
     return projectsData.filter((p) => p.category === activeCategory);
   }, [activeCategory]);
+
+  const getHostname = (url?: string) => {
+    if (!url) return "";
+    try {
+      return new URL(url).hostname;
+    } catch {
+      return url;
+    }
+  };
 
   return (
     <section
@@ -71,10 +81,42 @@ export function ProjectsSection() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col justify-between p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-700"
+              className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-700"
             >
-              {/* Card Header & Metadata */}
               <div className="space-y-4">
+                {/* Visual Browser Preview Screenshot */}
+                {project.image && (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="block relative rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950/70 overflow-hidden group/img mb-3"
+                  >
+                    {/* Browser Address Bar Header */}
+                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-[10px] font-mono text-zinc-500">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-rose-500/70 inline-block" />
+                        <span className="w-2 h-2 rounded-full bg-amber-500/70 inline-block" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-500/70 inline-block" />
+                      </div>
+                      <span className="truncate max-w-[200px] text-zinc-600 dark:text-zinc-400 font-medium">
+                        {getHostname(project.liveUrl) || project.title}
+                      </span>
+                      <div className="w-6" />
+                    </div>
+
+                    {/* Screenshot Frame */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-300 group-hover/img:scale-[1.03]"
+                        sizes="(max-width: 768px) 100vw, 480px"
+                      />
+                    </div>
+                  </Link>
+                )}
+
+                {/* Card Header & Metadata */}
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full border border-zinc-200 dark:border-amber-500/30 bg-zinc-100 dark:bg-amber-500/10 text-zinc-800 dark:text-amber-300 font-semibold uppercase">
                     {project.category}
@@ -125,7 +167,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Card Footer / Action Links */}
-              <div className="flex items-center justify-between pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-800/80">
+              <div className="flex items-center justify-between pt-5 mt-5 border-t border-zinc-100 dark:border-zinc-800/80">
                 <Link
                   href={`/projects/${project.slug}`}
                   className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-900 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold press-feedback"
