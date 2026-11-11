@@ -6,10 +6,6 @@ import {
   ExternalLink,
   Github,
   ArrowRight,
-  TrendingUp,
-  Layers,
-  Sparkles,
-  Package,
 } from "lucide-react";
 import { projectsData } from "@/data/projects";
 import type { ProjectCategory } from "@/types";
@@ -39,20 +35,19 @@ export function ProjectsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
-            <div className="font-mono text-xs text-gold-400 tracking-widest uppercase">
+            <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
               04 // FEATURED WORK
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
               Real software. <span className="gold-gradient-text">Shipped to production.</span>
             </h2>
             <p className="text-muted text-sm sm:text-base max-w-xl font-sans">
-              Enterprise logistics platforms, high-frequency telemetry dashboards, and zero-byte
-              e-commerce systems.
+              Logistics platforms, client web applications, merchant portals, and open-source packages.
             </p>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl border border-border bg-card/80 backdrop-blur-sm">
+          <div className="flex flex-wrap items-center gap-1 p-1 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 shadow-sm">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
@@ -61,8 +56,8 @@ export function ProjectsSection() {
                 className={cn(
                   "px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all duration-150 press-feedback",
                   activeCategory === cat.id
-                    ? "bg-gold-500/20 text-gold-400 font-bold border border-gold-500/40 shadow-sm"
-                    : "text-muted hover:text-foreground hover:bg-muted/10 border border-transparent"
+                    ? "bg-zinc-900 text-white dark:bg-amber-400 dark:text-zinc-950 font-semibold shadow-sm"
+                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
                 )}
               >
                 {cat.label}
@@ -76,24 +71,24 @@ export function ProjectsSection() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col justify-between p-6 rounded-2xl border border-border bg-card/70 backdrop-blur-sm gold-card-glow transition-all duration-200 hover:-translate-y-1 hover:border-gold-500/40 hover:shadow-gold-md"
+              className="group relative flex flex-col justify-between p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-700"
             >
               {/* Card Header & Metadata */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 font-semibold uppercase">
+                  <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full border border-zinc-200 dark:border-amber-500/30 bg-zinc-100 dark:bg-amber-500/10 text-zinc-800 dark:text-amber-300 font-semibold uppercase">
                     {project.category}
                   </span>
-                  <span className="font-mono text-xs text-muted/70">{project.year}</span>
+                  <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">{project.year}</span>
                 </div>
 
                 <div>
-                  <h3 className="font-display font-bold text-xl text-foreground tracking-tight group-hover:text-gold-400 transition-colors">
+                  <h3 className="font-display font-bold text-xl text-foreground tracking-tight group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
                     <Link href={`/projects/${project.slug}`} className="focus:outline-none">
                       {project.title}
                     </Link>
                   </h3>
-                  <p className="font-mono text-xs text-gold-400/80 mt-0.5">{project.tagline}</p>
+                  <p className="font-mono text-xs text-amber-700 dark:text-amber-400/90 mt-0.5 font-medium">{project.tagline}</p>
                 </div>
 
                 <p className="text-xs sm:text-sm text-muted leading-relaxed font-sans">
@@ -102,13 +97,13 @@ export function ProjectsSection() {
 
                 {/* Key Metric Highlights (if present) */}
                 {project.metrics && project.metrics.length > 0 && (
-                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-border/60">
+                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-zinc-100 dark:border-zinc-800/80">
                     {project.metrics.map((m) => (
-                      <div key={m.label} className="p-2 rounded-lg bg-nautical-950/40 border border-border/50">
-                        <span className="font-display font-bold text-xs text-gold-400 block">
+                      <div key={m.label} className="p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200/60 dark:border-zinc-800/60">
+                        <span className="font-display font-bold text-xs text-zinc-900 dark:text-amber-300 block">
                           {m.value}
                         </span>
-                        <span className="font-mono text-[10px] text-muted block truncate">
+                        <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400 block truncate">
                           {m.label}
                         </span>
                       </div>
@@ -121,7 +116,7 @@ export function ProjectsSection() {
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="font-mono text-[11px] px-2 py-0.5 rounded-md border border-border bg-muted/10 text-muted"
+                      className="font-mono text-[11px] px-2 py-0.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/80 dark:bg-zinc-800/50 text-zinc-700 dark:text-zinc-300"
                     >
                       {tech}
                     </span>
@@ -130,10 +125,10 @@ export function ProjectsSection() {
               </div>
 
               {/* Card Footer / Action Links */}
-              <div className="flex items-center justify-between pt-6 mt-6 border-t border-border/60">
+              <div className="flex items-center justify-between pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-800/80">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-gold-400 hover:text-gold-300 font-semibold press-feedback"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-900 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold press-feedback"
                 >
                   <span>Read Case Study</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -145,7 +140,7 @@ export function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg border border-border bg-card/60 text-muted hover:text-foreground hover:border-gold-500/40 transition-colors press-feedback"
+                      className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors press-feedback"
                       aria-label={`${project.title} GitHub Source`}
                       title="GitHub Repository"
                     >
@@ -158,7 +153,7 @@ export function ProjectsSection() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg border border-border bg-card/60 text-muted hover:text-gold-400 hover:border-gold-500/40 transition-colors press-feedback"
+                      className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors press-feedback"
                       aria-label={`${project.title} Live URL`}
                       title="Live Product"
                     >

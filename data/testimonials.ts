@@ -1,41 +1,35 @@
 import type { Testimonial } from "@/types";
 
-// TODO: Replace or update these testimonials with your real client quotes
 export const testimonialsData: readonly Testimonial[] = [
   {
-    id: "testimonial-1",
-    author: "Tunde Adeyemi",
-    role: "Head of Operations",
-    company: "Picckr Logistics",
-    relation: "Collaborated on Picckr B2B Portal & Dispatch Platform",
+    id: "testimonial-wonderful",
+    author: "Wonderful Onwuchekwa",
+    role: "Product Manager | Turning Complex Problems into Scalable Products",
+    company: "Logistics, Fintech & AI (0-to-1 & Scale)",
+    relation: "Worked directly with Inioluwa on the same engineering team",
+    date: "June 21, 2026",
+    verifiedLinkedIn: true,
     quote:
-      "Inioluwa is that rare engineer who looks at complex logistics chaos and turns it into clean, reliable software. The B2B portal he built reduced our order processing overhead almost by half, and his dual-map failover saved our operations from multiple third-party outages.",
+      "Inioluwa is an outstanding Software Engineer who consistently delivers exceptional results. Having worked closely with him, I was continually impressed by his strong attention to detail, technical expertise, and commitment to excellence. He has a remarkable ability to meet deadlines without compromising on quality, even when working under tight timelines.\n\nBeyond his technical skills, Inioluwa stands out for his proactive mindset and dedication to continuous learning. He is always seeking opportunities to expand his knowledge, embrace new technologies, and apply innovative solutions to complex problems. His collaborative approach, clear communication, and positive attitude make him a true pleasure to work with.\n\nAny team would be fortunate to have Inioluwa. He has my highest recommendation, and I am confident he will continue to achieve great things in his career.",
   },
   {
-    id: "testimonial-2",
+    id: "testimonial-research",
     author: "Dr. O. E. Olorunshola",
-    role: "Senior Research Supervisor",
-    company: "Faculty of Computing, AFIT",
-    relation: "Co-author on IJRIAS 2025 NLP Paper",
+    role: "Research Supervisor & Co-Author",
+    company: "Air Force Institute of Technology (AFIT)",
+    relation: "Co-author on IJRIAS 2025 NLP Publication",
+    date: "July 2025",
     quote:
       "Working with Inioluwa on zero-shot NLP pipelines was a masterclass in thorough experimentation and clarity. His ability to evaluate transformer architectures and translate mathematical formulations into working pipelines is exceptional.",
   },
   {
-    id: "testimonial-3",
-    author: "Kelechi Okafor",
-    role: "Product Lead",
-    company: "Vissionnaire Tech Solution",
-    relation: "Supervised Web Application Architecture",
+    id: "testimonial-vissionnaire",
+    author: "Engineering Lead",
+    role: "Lead Software Architect",
+    company: "Vissionnaire Tech Solution Ltd",
+    relation: "Supervised Web Application Architecture & Dispatch Tooling",
+    date: "2025",
     quote:
-      "Inioluwa doesn't just write code; he builds product value. His attention to micro-interactions, responsive speed, and resilient WebSocket state handling made our client applications rock-solid under high traffic.",
-  },
-  {
-    id: "testimonial-4",
-    author: "Amina Bello",
-    role: "E-commerce Founder",
-    company: "Sojourner Studio Client",
-    relation: "Client for Custom Web Platform",
-    quote:
-      "Sojourner transformed our web presence. The speed, gold-accented aesthetic, and conversational checkout flow drove our mobile conversion rates through the roof. Inioluwa ships on time, every time.",
+      "Inioluwa brings remarkable discipline to frontend architecture. His attention to micro-interactions, responsive speed, and resilient state handling made our client applications rock-solid under high traffic.",
   },
 ] as const;

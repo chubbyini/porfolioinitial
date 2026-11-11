@@ -32,7 +32,6 @@ export function CustomCursor() {
       mouseY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
 
-      // Check if target is interactive
       const target = e.target as HTMLElement | null;
       if (target) {
         const isInteractive = Boolean(
@@ -61,9 +60,9 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Central gold core point */}
+      {/* Central amber point */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9998] w-2 h-2 -ml-1 -mt-1 rounded-full bg-gold-400"
+        className="fixed top-0 left-0 pointer-events-none z-[9998] w-2 h-2 -ml-1 -mt-1 rounded-full bg-amber-600 dark:bg-amber-400"
         style={{
           x: mouseX,
           y: mouseY,
@@ -72,7 +71,7 @@ export function CustomCursor() {
 
       {/* Lagging fluid aura ring */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9997] -ml-4 -mt-4 rounded-full border border-gold-400/50 bg-gold-400/10 backdrop-blur-[1px]"
+        className="fixed top-0 left-0 pointer-events-none z-[9997] -ml-4 -mt-4 rounded-full border border-amber-600/40 dark:border-amber-400/50 bg-amber-600/10 dark:bg-amber-400/10 backdrop-blur-[1px]"
         style={{
           x: cursorX,
           y: cursorY,

@@ -1,18 +1,17 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import { ArrowDown, ArrowUpRight, BookOpen, Sparkles, Terminal } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BookOpen, Terminal } from "lucide-react";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 import { profileData } from "@/data/profile";
 
 export function HeroSection() {
   const roles = React.useMemo(
     () => [
-      "Web Developer at Vissionnaire Tech Solution Ltd",
-      "Founder of Sojourner Builds Studio",
+      "Junior Software Engineer at PicckR",
+      "Web Developer at Vissionnaire Tech Solution",
+      "Creator of Sojourner Builds (@sojournerbuilds/mark)",
       "Published NLP Researcher (IJRIAS 2025)",
-      "Logistics Dispatch Systems Architect",
     ],
     []
   );
@@ -37,16 +36,16 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-20 border-b border-border overflow-hidden bg-grid-pattern"
+      className="relative min-h-[90vh] flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-20 border-b border-border overflow-hidden bg-grid-pattern"
     >
-      {/* Ambient background gold glow */}
-      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-gradient-to-br from-gold-500/10 via-gold-400/5 to-transparent blur-3xl pointer-events-none" />
+      {/* Ambient background glow */}
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-amber-500/10 dark:from-amber-400/5 to-transparent blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl space-y-8 relative z-10">
         {/* Eyebrow Label */}
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 font-mono text-xs tracking-wider uppercase backdrop-blur-sm">
-          <Terminal className="w-3.5 h-3.5 text-gold-400" />
-          <span>Full-Stack Practitioner & Systems Builder</span>
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-amber-500/30 bg-zinc-100 dark:bg-amber-500/10 text-zinc-800 dark:text-amber-300 font-mono text-xs tracking-wider uppercase backdrop-blur-sm">
+          <Terminal className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+          <span>Software Engineer & Web Developer</span>
         </div>
 
         {/* Primary Headline */}
@@ -60,9 +59,9 @@ export function HeroSection() {
           <div className="h-8 sm:h-9 flex items-center overflow-hidden">
             <p
               key={currentRoleIndex}
-              className="font-mono text-sm sm:text-base text-gold-400/90 tracking-wide font-medium animate-fade-in flex items-center gap-2"
+              className="font-mono text-sm sm:text-base text-zinc-700 dark:text-amber-300 tracking-wide font-medium animate-fade-in flex items-center gap-2"
             >
-              <span className="text-gold-500 font-bold">&gt;</span>
+              <span className="text-amber-600 dark:text-amber-400 font-bold">&gt;</span>
               <span>{roles[currentRoleIndex]}</span>
             </p>
           </div>
@@ -70,12 +69,10 @@ export function HeroSection() {
 
         {/* Practitioner Positioning Statement */}
         <p className="text-base sm:text-xl text-muted leading-relaxed max-w-2xl font-sans">
-          I ship real, battle-tested software. At{" "}
-          <strong className="text-foreground font-semibold">Vissionnaire Tech Solution</strong> and{" "}
-          <strong className="text-foreground font-semibold">Picckr</strong>, I engineer core B2B
-          logistics suites and multi-provider mapping architectures. Through{" "}
-          <strong className="text-foreground font-semibold">Sojourner</strong>, I build tailored
-          digital systems and publish open-source web tokens.
+          I build responsive web applications, merchant portals, and interactive interfaces. Currently engineering at{" "}
+          <strong className="text-foreground font-semibold">PicckR</strong> and{" "}
+          <strong className="text-foreground font-semibold">Vissionnaire Tech Solution Ltd</strong>, while authoring open-source tooling and UI components under{" "}
+          <strong className="text-foreground font-semibold">Sojourner Builds</strong>.
         </p>
 
         {/* Action CTAs */}
@@ -84,9 +81,9 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => scrollTo("projects")}
-            className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-400 text-nautical-950 font-display font-bold text-sm tracking-wide flex items-center gap-2.5 shadow-gold-md hover:shadow-gold-lg transition-all duration-200 press-feedback"
+            className="px-6 py-3.5 rounded-xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-amber-400 dark:text-zinc-950 dark:hover:bg-amber-300 font-display font-semibold text-sm tracking-wide flex items-center gap-2.5 shadow-sm transition-all duration-150 press-feedback"
           >
-            <span>View Shipped Work</span>
+            <span>View My Work</span>
             <ArrowDown className="w-4 h-4" />
           </button>
 
@@ -94,20 +91,20 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => scrollTo("contact")}
-            className="px-6 py-3.5 rounded-xl border border-border bg-card/80 backdrop-blur-sm text-foreground hover:border-gold-500/50 hover:text-gold-400 font-display font-semibold text-sm tracking-wide flex items-center gap-2 transition-all duration-200 press-feedback"
+            className="px-6 py-3.5 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-950 dark:hover:text-white font-display font-semibold text-sm tracking-wide flex items-center gap-2 transition-all duration-150 press-feedback"
           >
-            <span>Hire Sojourner Studio</span>
-            <ArrowUpRight className="w-4 h-4 text-gold-400" />
+            <span>Get in Touch</span>
+            <ArrowUpRight className="w-4 h-4 text-amber-600 dark:text-amber-400" />
           </button>
 
           {/* Research Quick Link */}
           <button
             type="button"
             onClick={() => scrollTo("research")}
-            className="px-4 py-3 rounded-xl text-muted hover:text-foreground font-mono text-xs flex items-center gap-2 transition-colors press-feedback"
+            className="px-4 py-3 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-200 font-mono text-xs flex items-center gap-2 transition-colors press-feedback"
           >
-            <BookOpen className="w-3.5 h-3.5 text-gold-400" />
-            <span>Read IJRIAS NLP Paper</span>
+            <BookOpen className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+            <span>Read NLP Paper</span>
           </button>
         </div>
 
@@ -128,7 +125,7 @@ export function HeroSection() {
       </div>
 
       {/* Decorative Interactive Sojourner Token in background */}
-      <div className="hidden xl:block absolute right-12 bottom-12 p-3 rounded-full border border-gold-500/20 bg-card/40 backdrop-blur-md opacity-80 hover:opacity-100 transition-opacity">
+      <div className="hidden xl:block absolute right-12 bottom-12 p-3 rounded-full border border-zinc-200 dark:border-amber-500/20 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md opacity-80 hover:opacity-100 transition-opacity">
         <SojournerToken size={84} spinning={true} speed="slow" variant="waymark" />
       </div>
     </section>

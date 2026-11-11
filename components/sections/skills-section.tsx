@@ -26,6 +26,16 @@ import {
   Cloud,
   Gauge,
   Container,
+  Layout,
+  Sliders,
+  Network,
+  FileSpreadsheet,
+  Radio,
+  HelpCircle,
+  Flame,
+  Laptop,
+  Send,
+  Figma,
 } from "lucide-react";
 import { skillCategories } from "@/data/skills";
 import { cn } from "@/lib/utils";
@@ -55,6 +65,16 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Cloud,
   Gauge,
   Container,
+  Layout,
+  Sliders,
+  Network,
+  FileSpreadsheet,
+  Radio,
+  HelpCircle,
+  Flame,
+  Laptop,
+  Send,
+  Figma,
 };
 
 export function SkillsSection() {
@@ -66,65 +86,57 @@ export function SkillsSection() {
       <div className="max-w-5xl space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
-          <div className="font-mono text-xs text-gold-400 tracking-widest uppercase">
+          <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
             03 // SKILLS & TECH STACK
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
-            Engineered for precision. <span className="gold-gradient-text">Built for scale.</span>
+            Tools & Technologies. <span className="gold-gradient-text">Shipped in Production.</span>
           </h2>
           <p className="text-muted text-sm sm:text-base max-w-2xl font-sans">
-            A comprehensive matrix of technologies I deploy to build high-availability web products,
-            real-time dispatch pipelines, and zero-shot NLP models.
+            A clear overview of the technologies I use across frontend engineering, backend development,
+            applied NLP research, and workflow tooling.
           </p>
         </div>
 
         {/* Grouped Skills Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category) => (
             <div
               key={category.id}
-              className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm space-y-4 gold-card-glow shadow-sm"
+              className="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/40 space-y-4 shadow-sm"
             >
               <div>
                 <h3 className="font-display font-bold text-lg text-foreground tracking-tight">
                   {category.title}
                 </h3>
-                <p className="text-xs text-muted mt-1 font-sans">{category.description}</p>
+                <p className="text-xs text-muted mt-1 font-sans leading-relaxed">
+                  {category.description}
+                </p>
               </div>
 
-              {/* Skills Chips */}
-              <div className="flex flex-wrap gap-2.5 pt-2">
+              {/* Clean Skills Chips (No levels, no bars) */}
+              <div className="flex flex-wrap gap-2 pt-2">
                 {category.skills.map((skill) => {
-                  const Icon = ICON_MAP[skill.icon] || Code2;
+                  const Icon = (skill.icon && ICON_MAP[skill.icon]) || Code2;
                   return (
                     <div
                       key={skill.name}
                       className={cn(
-                        "group inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-medium transition-all duration-150 press-feedback cursor-default select-none",
+                        "group inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-medium transition-colors select-none",
                         skill.highlight
-                          ? "border-gold-500/30 bg-gold-500/10 text-foreground hover:border-gold-500/60 hover:shadow-gold-sm"
-                          : "border-border bg-card/80 text-muted hover:text-foreground hover:border-muted"
+                          ? "border-zinc-300 dark:border-amber-500/30 bg-zinc-50 dark:bg-amber-500/10 text-zinc-900 dark:text-zinc-100"
+                          : "border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white"
                       )}
                     >
                       <Icon
                         className={cn(
-                          "w-3.5 h-3.5 transition-transform duration-150 group-hover:scale-110",
-                          skill.highlight ? "text-gold-400" : "text-muted group-hover:text-foreground"
+                          "w-3.5 h-3.5 transition-transform group-hover:scale-110",
+                          skill.highlight
+                            ? "text-amber-600 dark:text-amber-400"
+                            : "text-zinc-500 dark:text-zinc-400"
                         )}
                       />
                       <span>{skill.name}</span>
-                      <span
-                        className={cn(
-                          "font-mono text-[9px] px-1 py-0.2 rounded border",
-                          skill.level === "Core"
-                            ? "border-gold-500/40 text-gold-400 bg-gold-500/10 font-bold"
-                            : skill.level === "Advanced"
-                            ? "border-slate-500/30 text-muted"
-                            : "border-border text-muted/80"
-                        )}
-                      >
-                        {skill.level}
-                      </span>
                     </div>
                   );
                 })}

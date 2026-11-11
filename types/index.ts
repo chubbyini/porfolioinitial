@@ -47,8 +47,7 @@ export interface ExperienceItem {
 
 export interface SkillItem {
   readonly name: string;
-  readonly level: "Core" | "Advanced" | "Proficient";
-  readonly icon: string;
+  readonly icon?: string;
   readonly highlight?: boolean;
 }
 
@@ -102,6 +101,8 @@ export interface Testimonial {
   readonly role: string;
   readonly company: string;
   readonly relation: string;
+  readonly date?: string;
+  readonly verifiedLinkedIn?: boolean;
 }
 
 export interface ProfileData {

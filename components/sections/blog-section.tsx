@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { BookOpen, Calendar, Clock, ExternalLink } from "lucide-react";
+import { Calendar, Clock, ExternalLink } from "lucide-react";
 import { articlesData } from "@/data/articles";
 import { profileData } from "@/data/profile";
 
@@ -16,7 +16,7 @@ export function BlogSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
-            <div className="font-mono text-xs text-gold-400 tracking-widest uppercase">
+            <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
               08 // ENGINEERING ARTICLES
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
@@ -28,24 +28,24 @@ export function BlogSection() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <Link
               href={profileData.socials.devto}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-lg border border-border bg-card/60 text-xs font-mono text-muted hover:text-foreground hover:border-gold-500/40 transition-colors press-feedback flex items-center gap-1.5"
+              className="px-3.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors press-feedback flex items-center gap-1.5 shadow-sm"
             >
               <span>Follow on DEV</span>
-              <ExternalLink className="w-3 h-3 text-gold-400" />
+              <ExternalLink className="w-3 h-3 text-muted" />
             </Link>
             <Link
               href={profileData.socials.medium}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-lg border border-border bg-card/60 text-xs font-mono text-muted hover:text-foreground hover:border-gold-500/40 transition-colors press-feedback flex items-center gap-1.5"
+              className="px-3.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors press-feedback flex items-center gap-1.5 shadow-sm"
             >
               <span>Follow on Medium</span>
-              <ExternalLink className="w-3 h-3 text-gold-400" />
+              <ExternalLink className="w-3 h-3 text-muted" />
             </Link>
           </div>
         </div>
@@ -58,22 +58,22 @@ export function BlogSection() {
               href={article.canonicalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 rounded-2xl border border-border bg-card/60 backdrop-blur-sm gold-card-glow flex flex-col justify-between space-y-4 transition-all duration-200 hover:-translate-y-1 hover:border-gold-500/40 hover:shadow-gold-md"
+              className="group p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-md flex flex-col justify-between space-y-4 transition-all duration-200 hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-700"
             >
               <div className="space-y-3">
                 {/* Platform Badge & Read Time */}
                 <div className="flex items-center justify-between text-[11px] font-mono text-muted">
-                  <span className="px-2 py-0.5 rounded-md border border-border bg-muted/10 font-bold uppercase text-gold-400">
+                  <span className="px-2 py-0.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800/60 font-semibold uppercase text-zinc-700 dark:text-amber-300">
                     {article.platform}
                   </span>
                   <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
+                    <Clock className="w-3 h-3 text-zinc-400" />
                     {article.readTime}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display font-bold text-base text-foreground tracking-tight group-hover:text-gold-400 transition-colors line-clamp-2">
+                <h3 className="font-display font-bold text-base text-foreground tracking-tight group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors line-clamp-2">
                   {article.title}
                 </h3>
 
@@ -84,24 +84,24 @@ export function BlogSection() {
               </div>
 
               {/* Tags & Date */}
-              <div className="pt-3 border-t border-border/60 space-y-2">
+              <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 space-y-2">
                 <div className="flex flex-wrap gap-1">
                   {article.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono text-[10px] px-1.5 py-0.2 rounded border border-border/50 text-muted/80"
+                      className="font-mono text-[10px] px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400"
                     >
                       #{tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between text-[11px] font-mono text-muted/70">
+                <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
+                    <Calendar className="w-3 h-3 text-amber-600 dark:text-amber-400" />
                     {article.date}
                   </span>
-                  <ExternalLink className="w-3 h-3 text-gold-400 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="w-3 h-3 text-muted group-hover:text-foreground transition-colors" />
                 </div>
               </div>
             </Link>

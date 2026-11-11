@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Inioluwa Daniel Osibajo — Web Developer & Systems Architect";
+export const alt = "Inioluwa Daniel Osibajo — Software Engineer & Web Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,13 +16,13 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "60px 80px",
-          backgroundColor: "#080C14",
+          backgroundColor: "#090D16",
           color: "#F8FAFC",
           fontFamily: "sans-serif",
           position: "relative",
         }}
       >
-        {/* Ambient Gold Glow */}
+        {/* Ambient Amber Glow */}
         <div
           style={{
             position: "absolute",
@@ -31,7 +31,7 @@ export default async function Image() {
             width: "550px",
             height: "550px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(201, 162, 39, 0.25) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%)",
           }}
         />
 
@@ -41,16 +41,16 @@ export default async function Image() {
             style={{
               padding: "8px 18px",
               borderRadius: "9999px",
-              border: "1px solid rgba(201, 162, 39, 0.4)",
-              backgroundColor: "rgba(201, 162, 39, 0.12)",
-              color: "#E6C766",
-              fontSize: "15px",
+              border: "1px solid rgba(245, 158, 11, 0.4)",
+              backgroundColor: "rgba(245, 158, 11, 0.12)",
+              color: "#FBBF24",
+              fontSize: "14px",
               fontWeight: 700,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
             }}
           >
-            SOJOURNER BUILDS // PRODUCTION SYSTEMS
+            SOFTWARE ENGINEER // PICCKR & VISSIONNAIRE
           </div>
         </div>
 
@@ -58,52 +58,84 @@ export default async function Image() {
         <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
           <div
             style={{
-              fontSize: "66px",
-              fontWeight: 800,
+              fontSize: "64px",
+              fontWeight: 900,
               letterSpacing: "-0.03em",
-              color: "#F8FAFC",
-              lineHeight: 1.1,
+              lineHeight: 1.08,
             }}
           >
-            Inioluwa Daniel <span style={{ color: "#E6C766" }}>Osibajo</span>
+            Inioluwa Daniel Osibajo
           </div>
+
           <div
             style={{
-              fontSize: "24px",
-              color: "#8A8F98",
-              maxWidth: "850px",
-              lineHeight: 1.4,
+              fontSize: "26px",
+              color: "#F59E0B",
+              fontWeight: 600,
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            Full-Stack Web Developer at Vissionnaire Tech Solution Ltd, Founder of Sojourner Builds, &amp; Published NLP Researcher
+            Software Engineer & Web Developer
+          </div>
+
+          <div
+            style={{
+              fontSize: "20px",
+              color: "#94A3B8",
+              maxWidth: "850px",
+              lineHeight: 1.45,
+            }}
+          >
+            Building responsive web applications, merchant portals, design systems, and published NLP research.
           </div>
         </div>
 
-        {/* Footer Metrics & Domain */}
+        {/* Footer Metrics */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderTop: "1px solid rgba(201, 162, 39, 0.2)",
+            borderTop: "1px solid rgba(148, 163, 184, 0.15)",
             paddingTop: "24px",
           }}
         >
-          <div style={{ display: "flex", gap: "48px" }}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: "28px", fontWeight: 700, color: "#E6C766" }}>2+ Years</span>
-              <span style={{ fontSize: "14px", color: "#8A8F98" }}>Production Software</span>
+          <div style={{ display: "flex", gap: "40px" }}>
+            <div>
+              <span style={{ fontSize: "24px", fontWeight: 800, color: "#FBBF24", display: "block" }}>
+                2+ Yrs
+              </span>
+              <span style={{ fontSize: "13px", color: "#64748B", textTransform: "uppercase" }}>
+                Production Exp
+              </span>
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: "28px", fontWeight: 700, color: "#E6C766" }}>10+ Apps</span>
-              <span style={{ fontSize: "14px", color: "#8A8F98" }}>Shipped Products</span>
+            <div>
+              <span style={{ fontSize: "24px", fontWeight: 800, color: "#FBBF24", display: "block" }}>
+                10+
+              </span>
+              <span style={{ fontSize: "13px", color: "#64748B", textTransform: "uppercase" }}>
+                Shipped Projects
+              </span>
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: "28px", fontWeight: 700, color: "#E6C766" }}>IJRIAS 2025</span>
-              <span style={{ fontSize: "14px", color: "#8A8F98" }}>Published NLP Paper</span>
+            <div>
+              <span style={{ fontSize: "24px", fontWeight: 800, color: "#FBBF24", display: "block" }}>
+                IJRIAS
+              </span>
+              <span style={{ fontSize: "13px", color: "#64748B", textTransform: "uppercase" }}>
+                Published Paper
+              </span>
             </div>
           </div>
-          <div style={{ fontSize: "18px", color: "#8A8F98", fontWeight: 600 }}>
+
+          <div
+            style={{
+              fontSize: "14px",
+              color: "#94A3B8",
+              fontFamily: "monospace",
+            }}
+          >
             inioluwa.dev
           </div>
         </div>

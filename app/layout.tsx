@@ -30,16 +30,17 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://inioluwa.dev"),
-  title: "Inioluwa Daniel Osibajo — Web Developer & Systems Architect",
+  title: "Inioluwa Daniel Osibajo — Software Engineer & Web Developer",
   description:
-    "Personal portfolio of Inioluwa Daniel Osibajo. Full-Stack Web Developer at Vissionnaire Tech Solution Ltd, Founder of Sojourner Builds, and Published NLP Researcher.",
+    "Personal portfolio of Inioluwa Daniel Osibajo. Software Engineer at PicckR and Vissionnaire Tech Solution Ltd, Creator of Sojourner Builds, and Published NLP Researcher.",
   keywords: [
     "Inioluwa Daniel Osibajo",
     "Inioluwa Osibajo",
+    "Software Engineer",
     "Web Developer",
     "Frontend Engineer",
+    "PicckR",
     "Vissionnaire Tech Solution",
-    "Picckr",
     "Sojourner Builds",
     "Next.js",
     "TypeScript",
@@ -53,16 +54,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://inioluwa.dev",
-    title: "Inioluwa Daniel Osibajo — Web Developer & Systems Architect",
+    title: "Inioluwa Daniel Osibajo — Software Engineer & Web Developer",
     description:
-      "I ship real products, architect resilient web systems, and write about how I build them.",
+      "I build responsive web applications, design clean interfaces, and ship real products.",
     siteName: "Inioluwa Daniel Osibajo Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Inioluwa Daniel Osibajo — Web Developer & Systems Architect",
+    title: "Inioluwa Daniel Osibajo — Software Engineer & Web Developer",
     description:
-      "I ship real products, architect resilient web systems, and write about how I build them.",
+      "I build responsive web applications, design clean interfaces, and ship real products.",
   },
   robots: {
     index: true,
@@ -72,8 +73,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#080C14" },
-    { media: "(prefers-color-scheme: light)", color: "#F8FAFC" },
+    { media: "(prefers-color-scheme: dark)", color: "#090D16" },
+    { media: "(prefers-color-scheme: light)", color: "#FAFAFA" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -86,14 +87,20 @@ const jsonLd = {
   alternateName: "Inioluwa Osibajo",
   url: "https://inioluwa.dev",
   image: "https://inioluwa.dev/avatar.png",
-  jobTitle: "Full-Stack Web Developer & Founder",
-  worksFor: {
-    "@type": "Organization",
-    name: "Vissionnaire Tech Solution Ltd",
-  },
+  jobTitle: "Software Engineer & Web Developer",
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "PicckR",
+    },
+    {
+      "@type": "Organization",
+      name: "Vissionnaire Tech Solution Ltd",
+    },
+  ],
   alumniOf: {
     "@type": "CollegeOrUniversity",
-    name: "Air Force Institute of Technology (AFIT), Kaduna",
+    name: "Air Force Institute of Technology (AFIT)",
   },
   sameAs: [
     "https://github.com/chubbyini",
@@ -104,7 +111,8 @@ const jsonLd = {
     "https://www.npmjs.com/package/@sojournerbuilds/mark",
   ],
   knowsAbout: [
-    "Web Development",
+    "Software Engineering",
+    "Frontend Development",
     "Next.js",
     "TypeScript",
     "React",

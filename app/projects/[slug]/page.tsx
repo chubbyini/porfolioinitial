@@ -4,14 +4,9 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
-  ArrowUpRight,
-  CheckCircle2,
   Cpu,
   ExternalLink,
   Github,
-  Layers,
-  Sparkles,
-  TrendingUp,
 } from "lucide-react";
 import { projectsData } from "@/data/projects";
 
@@ -60,7 +55,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
       {/* Back Link */}
       <Link
         href="/#projects"
-        className="inline-flex items-center gap-2 font-mono text-xs text-muted hover:text-gold-400 transition-colors press-feedback"
+        className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors press-feedback"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Return to All Projects</span>
@@ -69,12 +64,12 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
       {/* Case Study Header */}
       <div className="space-y-4">
         <div className="flex flex-wrap items-center gap-2.5">
-          <span className="font-mono text-xs px-2.5 py-1 rounded-md border border-gold-500/30 bg-gold-500/10 text-gold-400 font-semibold uppercase">
+          <span className="font-mono text-xs px-2.5 py-1 rounded-md border border-zinc-200 dark:border-amber-500/30 bg-zinc-100 dark:bg-amber-500/10 text-zinc-800 dark:text-amber-300 font-semibold uppercase">
             {project.category}
           </span>
-          <span className="font-mono text-xs text-muted/70">{project.year}</span>
+          <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">{project.year}</span>
           {project.client && (
-            <span className="font-mono text-xs text-muted/80">
+            <span className="font-mono text-xs text-zinc-600 dark:text-zinc-400">
               Client: <strong className="text-foreground">{project.client}</strong>
             </span>
           )}
@@ -83,7 +78,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
         <h1 className="font-display font-bold text-3xl sm:text-5xl text-foreground tracking-tight">
           {project.title}
         </h1>
-        <p className="font-mono text-sm sm:text-base text-gold-400/90">{project.tagline}</p>
+        <p className="font-mono text-sm sm:text-base text-amber-700 dark:text-amber-300 font-medium">{project.tagline}</p>
         <p className="text-sm sm:text-base text-muted leading-relaxed max-w-3xl font-sans">
           {project.description}
         </p>
@@ -95,7 +90,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-400 text-nautical-950 font-display font-semibold text-xs tracking-wide flex items-center gap-2 shadow-gold-sm hover:shadow-gold-md transition-all press-feedback"
+              className="px-5 py-2.5 rounded-xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-amber-400 dark:text-zinc-950 dark:hover:bg-amber-300 font-display font-semibold text-xs tracking-wide flex items-center gap-2 shadow-sm transition-all press-feedback"
             >
               <span>Visit Live Product</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -107,7 +102,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl border border-border bg-card/60 text-foreground hover:border-gold-500/40 hover:text-gold-400 font-display font-semibold text-xs tracking-wide flex items-center gap-2 transition-all press-feedback"
+              className="px-5 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-foreground hover:bg-zinc-100 dark:hover:bg-zinc-800 font-display font-semibold text-xs tracking-wide flex items-center gap-2 transition-all press-feedback"
             >
               <span>View Source Code</span>
               <Github className="w-3.5 h-3.5" />
@@ -116,16 +111,16 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Embedded Video Demo / Interactive Media Showcase (Lendex-style) */}
-      <div className="relative rounded-2xl border border-border bg-card overflow-hidden gold-card-glow shadow-gold-sm">
-        <div className="p-3 border-b border-border bg-nautical-950/60 flex items-center justify-between">
+      {/* Embedded Showcase Frame */}
+      <div className="relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-sm">
+        <div className="p-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950/80 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
             <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
           </div>
-          <span className="font-mono text-xs text-muted/80">
-            {project.title.toLowerCase().replace(/\s+/g, "-")}.production.sojourner
+          <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
+            {project.title.toLowerCase().replace(/\s+/g, "-")}.production
           </span>
           <div className="w-12" />
         </div>
@@ -140,8 +135,8 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             />
           </div>
         ) : (
-          <div className="aspect-[16/9] w-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-nautical-900 via-card to-nautical-950 text-center space-y-4">
-            <div className="p-4 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400">
+          <div className="aspect-[16/9] w-full flex flex-col items-center justify-center p-8 bg-zinc-50 dark:bg-zinc-950/40 text-center space-y-4">
+            <div className="p-4 rounded-full border border-zinc-200 dark:border-amber-500/30 bg-white dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 shadow-sm">
               <Cpu className="w-8 h-8" />
             </div>
             <div className="space-y-1">
@@ -160,9 +155,9 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         {/* Left: Metadata & Tech Specs */}
         <div className="md:col-span-4 space-y-6">
-          <div className="p-5 rounded-xl border border-border bg-card/60 space-y-4">
+          <div className="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm space-y-4">
             <div>
-              <span className="font-mono text-xs uppercase tracking-wider text-muted/70 block">
+              <span className="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold block">
                 My Role
               </span>
               <span className="font-display font-bold text-sm text-foreground block mt-0.5">
@@ -171,7 +166,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             </div>
 
             <div>
-              <span className="font-mono text-xs uppercase tracking-wider text-muted/70 block">
+              <span className="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold block">
                 Year / Timeline
               </span>
               <span className="font-mono text-xs text-foreground block mt-0.5">
@@ -179,15 +174,15 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               </span>
             </div>
 
-            <div className="pt-2 border-t border-border/60">
-              <span className="font-mono text-xs uppercase tracking-wider text-muted/70 block mb-2">
+            <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800">
+              <span className="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold block mb-2">
                 Technologies
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {project.stack.map((item) => (
                   <span
                     key={item}
-                    className="font-mono text-xs px-2 py-0.5 rounded-md border border-border bg-muted/10 text-muted"
+                    className="font-mono text-xs px-2 py-0.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300"
                   >
                     {item}
                   </span>
@@ -196,16 +191,16 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             </div>
 
             {project.metrics && project.metrics.length > 0 && (
-              <div className="pt-2 border-t border-border/60 space-y-2">
-                <span className="font-mono text-xs uppercase tracking-wider text-muted/70 block">
+              <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800 space-y-2">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold block">
                   Measured Impact
                 </span>
                 {project.metrics.map((m) => (
-                  <div key={m.label} className="p-2.5 rounded-lg bg-nautical-950/40 border border-border/50">
-                    <span className="font-display font-bold text-sm text-gold-400 block">
+                  <div key={m.label} className="p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800">
+                    <span className="font-display font-bold text-sm text-amber-700 dark:text-amber-300 block">
                       {m.value}
                     </span>
-                    <span className="font-mono text-xs text-muted block">{m.label}</span>
+                    <span className="font-mono text-xs text-zinc-600 dark:text-zinc-400 block">{m.label}</span>
                   </div>
                 ))}
               </div>
@@ -218,7 +213,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           {/* 1. The Challenge */}
           <div className="space-y-3">
             <h2 className="font-display font-bold text-2xl text-foreground tracking-tight flex items-center gap-2">
-              <span className="font-mono text-sm text-gold-400">01 //</span>
+              <span className="font-mono text-sm text-amber-700 dark:text-amber-400 font-semibold">01 //</span>
               <span>The Problem & Friction</span>
             </h2>
             <p className="text-sm sm:text-base text-muted leading-relaxed">
@@ -229,7 +224,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           {/* 2. Architecture & Implementation */}
           <div className="space-y-3">
             <h2 className="font-display font-bold text-2xl text-foreground tracking-tight flex items-center gap-2">
-              <span className="font-mono text-sm text-gold-400">02 //</span>
+              <span className="font-mono text-sm text-amber-700 dark:text-amber-400 font-semibold">02 //</span>
               <span>Architecture & Engineering Strategy</span>
             </h2>
             <p className="text-sm sm:text-base text-muted leading-relaxed">
@@ -240,7 +235,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           {/* 3. Results & Shipped Impact */}
           <div className="space-y-3">
             <h2 className="font-display font-bold text-2xl text-foreground tracking-tight flex items-center gap-2">
-              <span className="font-mono text-sm text-gold-400">03 //</span>
+              <span className="font-mono text-sm text-amber-700 dark:text-amber-400 font-semibold">03 //</span>
               <span>Shipped Outcome</span>
             </h2>
             <p className="text-sm sm:text-base text-muted leading-relaxed">
@@ -252,10 +247,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
 
       {/* Next Project Footer */}
       {nextProject && (
-        <div className="pt-8 border-t border-border flex items-center justify-between">
+        <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
           <Link
             href="/#projects"
-            className="font-mono text-xs text-muted hover:text-gold-400 transition-colors"
+            className="font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors"
           >
             ← View All Work
           </Link>
@@ -265,12 +260,12 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             className="group flex items-center gap-2 text-right"
           >
             <div>
-              <span className="font-mono text-[10px] text-muted block uppercase">Next Case Study</span>
-              <span className="font-display font-bold text-sm text-foreground group-hover:text-gold-400 transition-colors">
+              <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400 block uppercase font-medium">Next Case Study</span>
+              <span className="font-display font-bold text-sm text-foreground group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">
                 {nextProject.title}
               </span>
             </div>
-            <ArrowRight className="w-4 h-4 text-gold-400 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 text-amber-600 dark:text-amber-400 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       )}

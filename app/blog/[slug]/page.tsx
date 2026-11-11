@@ -47,7 +47,6 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
-  // Find matching canonical article in data/articles if present
   const articleMeta = articlesData.find((a) => a.slug === slug);
 
   return (
@@ -55,16 +54,16 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Back Link */}
       <Link
         href="/#blog"
-        className="inline-flex items-center gap-2 font-mono text-xs text-muted hover:text-gold-400 transition-colors press-feedback"
+        className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors press-feedback"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Return to All Articles</span>
       </Link>
 
       {/* Article Header */}
-      <header className="space-y-6 border-b border-border pb-8">
-        <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-muted">
-          <span className="flex items-center gap-1.5 text-gold-400 font-semibold">
+      <header className="space-y-6 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+        <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-semibold">
             <Calendar className="w-3.5 h-3.5" />
             {post.date}
           </span>
@@ -84,9 +83,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         </p>
 
         {/* Author Byline */}
-        <div className="flex items-center justify-between pt-4 border-t border-border/70">
+        <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border border-gold-500/40 overflow-hidden relative">
+            <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-amber-500/40 overflow-hidden relative">
               <Image
                 src="/avatar.png"
                 alt={profileData.name}
@@ -98,7 +97,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span className="font-display font-bold text-sm text-foreground block">
                 {profileData.name}
               </span>
-              <span className="font-mono text-xs text-gold-400 block -mt-0.5">
+              <span className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold block -mt-0.5">
                 {profileData.role}
               </span>
             </div>
@@ -109,17 +108,17 @@ export default async function BlogPostPage({ params }: PageProps) {
               href={articleMeta.canonicalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card/60 font-mono text-xs text-muted hover:text-gold-400 hover:border-gold-500/40 transition-colors press-feedback"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors press-feedback shadow-sm"
             >
               <span>Read on {articleMeta.platform.toUpperCase()}</span>
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3 h-3 text-muted" />
             </Link>
           )}
         </div>
       </header>
 
       {/* Markdown Body Content */}
-      <div className="prose dark:prose-invert prose-gold max-w-none text-foreground/90 font-sans leading-relaxed space-y-6">
+      <div className="prose dark:prose-invert max-w-none text-foreground/90 font-sans leading-relaxed space-y-6">
         <div
           dangerouslySetInnerHTML={{
             __html: post.content
@@ -133,16 +132,16 @@ export default async function BlogPostPage({ params }: PageProps) {
                 }
                 if (block.startsWith("```")) {
                   const cleaned = block.replace(/```[a-z]*\n?/gi, "").trim();
-                  return `<pre class="p-4 rounded-xl border border-border bg-nautical-950/80 font-mono text-xs text-gold-300 overflow-x-auto"><code>${cleaned}</code></pre>`;
+                  return `<pre class="p-4 rounded-xl border border-zinc-800 bg-zinc-950 font-mono text-xs text-amber-300 overflow-x-auto shadow-sm"><code>${cleaned}</code></pre>`;
                 }
                 if (block.startsWith("- ")) {
                   const items = block
                     .split("\n")
-                    .map((item) => `<li class="ml-4 list-disc">${item.replace(/^- /, "")}</li>`)
+                    .map((item) => `<li class="ml-4 list-disc text-zinc-700 dark:text-zinc-300">${item.replace(/^- /, "")}</li>`)
                     .join("");
-                  return `<ul class="space-y-1 text-muted text-sm sm:text-base">${items}</ul>`;
+                  return `<ul class="space-y-1 text-sm sm:text-base">${items}</ul>`;
                 }
-                return `<p class="text-muted text-sm sm:text-base leading-relaxed">${block.replace(/\n/g, "<br/>")}</p>`;
+                return `<p class="text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">${block.replace(/\n/g, "<br/>")}</p>`;
               })
               .join(""),
           }}
@@ -150,16 +149,16 @@ export default async function BlogPostPage({ params }: PageProps) {
       </div>
 
       {/* Post Footer */}
-      <footer className="pt-8 border-t border-border flex items-center justify-between">
+      <footer className="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
         <Link
           href="/#blog"
-          className="font-mono text-xs text-muted hover:text-gold-400 transition-colors"
+          className="font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors"
         >
           ← Back to Articles
         </Link>
         <Link
           href="/#contact"
-          className="font-mono text-xs text-gold-400 hover:text-gold-300 transition-colors"
+          className="font-mono text-xs text-amber-700 dark:text-amber-400 hover:underline font-semibold transition-colors"
         >
           Discuss Architecture with Inioluwa →
         </Link>

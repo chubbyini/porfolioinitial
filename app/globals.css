@@ -7,29 +7,31 @@
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
-  --background: #F8FAFC;
-  --foreground: #0B0F1A;
-  --muted: #64748B;
+  /* Light mode: crisp, modern, high-contrast */
+  --background: #FAFAFA;
+  --foreground: #09090B;
+  --muted: #52525B;
   --card: #FFFFFF;
-  --card-foreground: #0B0F1A;
-  --border: rgba(15, 23, 42, 0.08);
-  --gold-primary: #B38A1B;
-  --gold-secondary: #D4AF37;
+  --card-foreground: #09090B;
+  --border: #E4E4E7;
+  --gold-primary: #B45309; /* Deep, readable amber-700 */
+  --gold-secondary: #D97706; /* Rich amber-600 */
   --sidebar-bg: #FFFFFF;
-  --sidebar-border: rgba(15, 23, 42, 0.06);
+  --sidebar-border: #E4E4E7;
 }
 
 .dark {
-  --background: #080C14;
+  /* Dark mode: sleek obsidian canvas with crisp typography */
+  --background: #090D16;
   --foreground: #F8FAFC;
-  --muted: #8A8F98;
-  --card: #0E1422;
+  --muted: #94A3B8;
+  --card: #0F172A;
   --card-foreground: #F8FAFC;
-  --border: rgba(201, 162, 39, 0.12);
-  --gold-primary: #C9A227;
-  --gold-secondary: #E6C766;
+  --border: rgba(148, 163, 184, 0.14);
+  --gold-primary: #F59E0B;
+  --gold-secondary: #FBBF24;
   --sidebar-bg: #0B101C;
-  --sidebar-border: rgba(201, 162, 39, 0.14);
+  --sidebar-border: rgba(148, 163, 184, 0.12);
 }
 
 * {
@@ -45,7 +47,7 @@ body {
   color: var(--foreground);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
-  transition: background-color 250ms var(--ease-out), color 250ms var(--ease-out);
+  transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out);
 }
 
 /* Custom Scrollbar */
@@ -56,51 +58,62 @@ body {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(201, 162, 39, 0.3);
+  background: rgba(148, 163, 184, 0.3);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 162, 39, 0.6);
+  background: rgba(148, 163, 184, 0.6);
 }
 
 /* Emil Kowalski Design Engineering: Press feedback */
 .press-feedback {
-  transition: transform 160ms var(--ease-out);
+  transition: transform 140ms var(--ease-out);
 }
 .press-feedback:active {
   transform: scale(0.97);
 }
 
-/* Gold Gradient Text */
+/* High-Contrast Gold/Amber Gradient Text */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #F5D77F 0%, #C9A227 50%, #E6C766 100%);
+  background: linear-gradient(135deg, #78350F 0%, #B45309 50%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Subtle Card Glow */
+.dark .gold-gradient-text {
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle Card Edge highlight */
 .gold-card-glow {
   position: relative;
 }
-.gold-card-glow::before {
+.dark .gold-card-glow::before {
   content: "";
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.35), transparent 60%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), transparent 60%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
-/* Background Subtle Grid Pattern */
+/* Background Grid Pattern */
 .bg-grid-pattern {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(201, 162, 39, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(201, 162, 39, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 /* Reduced motion accessibility */
