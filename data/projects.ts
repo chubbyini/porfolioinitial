@@ -2,12 +2,39 @@ import type { Project } from "@/types";
 
 export const projectsData: readonly Project[] = [
   {
+    id: "picckr-home",
+    slug: "picckr-home",
+    title: "PicckR — One Community Network. Four Paths.",
+    tagline: "Flagship logistics web platform connecting senders, travelers, and fleets in real-time across 16+ cities",
+    description:
+      "The flagship digital front door for PicckR. Send a parcel, earn by carrying one, or scale logistics for your business across Nigeria with real-time tracking, live pricing estimates, and nationwide courier networks.",
+    category: "client",
+    client: "PicckR / Vissionnaire Tech Solution",
+    role: "Frontend Engineer & Web Developer",
+    year: "2024 — Present",
+    featured: true,
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "SEO Architecture"],
+    metrics: [
+      { label: "Nationwide Coverage", value: "16+ Cities" },
+      { label: "Active Couriers", value: "1K+" },
+      { label: "On-Time Delivery", value: "99.4%" },
+    ],
+    liveUrl: "https://picckr.com/",
+    image: "/projects/picckr-home.png",
+    problem:
+      "PicckR required an authoritative, high-conversion web presence to build immediate trust with high-volume enterprise e-commerce merchants, attract delivery fleet partners, and explain its on-demand logistics network with crisp clarity.",
+    architecture:
+      "Engineered a responsive, high-performance web experience featuring accessible typography, interactive delivery tracking search, seamless multi-step partner onboarding flows, and structured schema markup for search engine discovery.",
+    results:
+      "Established PicckR's primary commercial web presence, driving merchant acquisition and anchoring the brand's logistics ecosystem in Lagos and across 16+ cities.",
+  },
+  {
     id: "picckr-b2b",
     slug: "picckr-b2b",
-    title: "PicckR Business B2B Web App",
-    tagline: "Enterprise merchant logistics and bulk dispatch command portal",
+    title: "PicckR for Business — Ship Smarter, Grow Faster",
+    tagline: "Community-powered enterprise delivery network with real-time tracking and automated merchant settlements",
     description:
-      "A high-throughput web application engineered for enterprise merchants to orchestrate high-volume deliveries, bulk multi-stop dispatches, automated invoicing, and live package tracking across Nigeria.",
+      "Connect your business to a community-powered delivery network. Engineered for high-throughput merchant orders, bulk CSV batch creation, real-time rider dispatch, and zero fleet headaches.",
     category: "client",
     client: "PicckR / Vissionnaire Tech Solution",
     role: "Software Engineer",
@@ -16,7 +43,7 @@ export const projectsData: readonly Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST APIs", "Zod", "WebSockets"],
     metrics: [
       { label: "Dispatch Speed", value: "+45% faster" },
-      { label: "Order Volume", value: "Hundreds daily" },
+      { label: "Avg Delivery Time", value: "30 mins" },
       { label: "Crash Rate", value: "< 0.01%" },
     ],
     liveUrl: "https://business.picckr.com/",
@@ -31,10 +58,10 @@ export const projectsData: readonly Project[] = [
   {
     id: "picckr-logistics",
     slug: "picckr-logistics",
-    title: "PicckR Logistics Partner Platform",
-    tagline: "Core fleet partner dispatch and operations management platform",
+    title: "PicckR Logistics — Move Every Package with Trust",
+    tagline: "Fleet partner workspace for dispatching orders, managing riders, tracking deliveries, and keeping every handoff visible",
     description:
-      "The dedicated command platform powering operations dispatchers, delivery partners, real-time rider allocation, route optimization, and live delivery status milestones.",
+      "The dedicated operations workspace powering fleet dispatchers, delivery partners, real-time rider allocation, route optimization, and live transit milestones across Nigeria.",
     category: "client",
     client: "PicckR",
     role: "Software Engineer",
@@ -43,8 +70,8 @@ export const projectsData: readonly Project[] = [
     stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Map Services", "REST APIs"],
     metrics: [
       { label: "Dispatch Throughput", value: "2.4x increase" },
-      { label: "Live Tracking", value: "Sub-second updates" },
-      { label: "Partner Uptime", value: "99.98%" },
+      { label: "Live Telemetry", value: "Sub-second sync" },
+      { label: "Partner Reliability", value: "99.98%" },
     ],
     liveUrl: "https://partners.picckr.com/",
     image: "/projects/picckr-logistics.png",

@@ -23,7 +23,7 @@ export const profileData: ProfileData = {
       helper: "Building web applications, merchant portals, and dispatch tools",
     },
     {
-      value: "10+",
+      value: "12+",
       label: "Shipped Projects",
       helper: "B2B web apps, logistics platforms, stores, and tools",
     },
