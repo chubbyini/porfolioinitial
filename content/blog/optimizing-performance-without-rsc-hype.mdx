@@ -1,0 +1,59 @@
+---
+title: "Optimizing Performance Without Falling for the RSC Hype"
+date: "Sep 21, 2026"
+readTime: "6 min read"
+tags: ["Next.js", "Performance", "React", "Architecture"]
+description: "A pragmatic look at React Server Components: where they genuinely cut client bundle costs, and where simple browser caching and streaming deliver 90% of the gains with zero complexity."
+---
+
+# Optimizing Performance Without Falling for the RSC Hype
+
+The JavaScript ecosystem tends to swing in violent pendulum motions. Two years ago, client-side rendering was declared dead. React Server Components (RSC) were crowned the single panacea for web bloat.
+
+In production at **Vissionnaire Tech Solution** and across high-throughput logistics platforms like **Picckr**, we had to answer a pragmatic question: *Does moving every component to the server actually make the application faster for end users on Nigerian mobile 3G/4G connections?*
+
+The answer is nuanced, and it comes down to three architectural truths.
+
+---
+
+## 1. Network Latency vs. Execution Latency
+
+On high-latency cellular connections (200ms+ round trips), every server hop carries a real penalty. When developers serialize large component trees into React Flight protocol payloads, they frequently swap a 50KB JS bundle download for continuous, chunky network waterfalls on every route interaction.
+
+```typescript
+// The ideal boundary: Pure static data on the server, immediate interactive islands on the client
+export async function WaybillTracker({ trackingNumber }: { trackingNumber: string }) {
+  // 1. Fetch initial parcel record statically on the edge
+  const parcel = await getParcelRecord(trackingNumber);
+
+  return (
+    <article className="parcel-card">
+      <ParcelStaticSummary parcel={parcel} />
+      {/* 2. Hydrate client island only for live WebSocket feeds */}
+      <LiveRiderLocationStream parcelId={parcel.id} />
+    </article>
+  );
+}
+```
+
+---
+
+## 2. When Server Components Genuinely Shine
+
+RSC is unmatched when dealing with **heavy, non-interactive dependencies**:
+- Syntax highlighters (`shiki` or `prism`) that would otherwise add 180KB to client bundles.
+- Markdown and MDX parsers.
+- Large date formatting and localized currency tables.
+
+By evaluating these dependencies entirely at build or server time, the browser receives raw HTML and zero runtime parsing overhead.
+
+---
+
+## 3. The 90/10 Rule for Practical Performance
+
+Before reaching for complex server-action graphs, audit your foundation:
+1. **Asset Dimensions:** Proper `next/image` sizing and WebP/AVIF conversions.
+2. **Font Subsetting:** Self-hosted `next/font` with `display: swap` eliminating layout shifts.
+3. **Tactile Micro-Interactions:** Hardware-accelerated CSS transforms over JavaScript-driven main-thread recalculations.
+
+Architecture is not about adopting every bleeding-edge primitive; it is about choosing the leanest, most reliable tool that delivers speed to real users.

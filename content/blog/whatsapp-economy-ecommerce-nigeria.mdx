@@ -1,0 +1,64 @@
+---
+title: "The WhatsApp Economy: Re-engineering E-commerce for Nigeria's Informal Markets"
+date: "Mar 21, 2026"
+readTime: "7 min read"
+tags: ["Product", "E-commerce", "Emerging Markets", "UX"]
+description: "Why traditional cart-and-checkout flows fail Nigerian merchants, and how building conversational checkout layers over WhatsApp drove dramatic completion rates."
+---
+
+# The WhatsApp Economy: Re-engineering E-commerce for Nigeria's Informal Markets
+
+In Western markets, e-commerce UX is deeply dogmatic: browse a catalogue, add items to a persistent shopping cart, click through a 3-step checkout form, and input credit card credentials.
+
+In Nigeria and across West Africa, this model frequently collapses. Over 80% of consumer commerce occurs through informal conversations on WhatsApp, Instagram DMs, and voice notes.
+
+When building merchant solutions at **Sojourner**, we stepped back to ask: *Why are merchants abandoning traditional Shopify-style stores in favor of WhatsApp chats?*
+
+---
+
+## 1. Trust as an Interactive Protocol
+
+In emerging economies, purchasing is conversational because trust must be negotiated:
+- "Is this exact size in stock right now?"
+- "Can I pay on delivery in Kaduna?"
+- "Which courier are you using to send it?"
+
+A static checkout form cannot answer these questions. When a user is forced into an automated gateway, anxiety spikes and cart abandonment reaches upwards of 70%.
+
+---
+
+## 2. Architecting Conversational Checkouts
+
+Instead of replacing WhatsApp, we engineered software that turns WhatsApp into a structured database transaction:
+
+```typescript
+interface WhatsAppCheckoutPayload {
+  merchantId: string;
+  cart: Array<{ sku: string; quantity: number; unitPrice: number }>;
+  deliveryAddress: {
+    state: string;
+    city: string;
+    landmark: string;
+  };
+  checksum: string;
+}
+
+export function generateDirectOrderLink(payload: WhatsAppCheckoutPayload): string {
+  const formattedMessage = encodeURIComponent(
+    `Hello! I would like to order:\n` +
+    payload.cart.map(i => `• ${i.quantity}x ${i.sku} (₦${i.unitPrice})`).join('\n') +
+    `\n\nDelivery Landmark: ${payload.deliveryAddress.landmark}, ${payload.deliveryAddress.city}\n` +
+    `Order Hash: [${payload.checksum}]`
+  );
+
+  return `https://wa.me/${payload.merchantId}?text=${formattedMessage}`;
+}
+```
+
+---
+
+## 3. Results and Takeaways
+
+By embedding deterministic order manifests directly into the chat string, merchants gained automated inventory bookkeeping while buyers retained the comfort of human conversation.
+
+The takeaway for software engineers is clear: **Never force user behavior to fit your technical architecture. Bend your architecture to respect how people naturally trade.**
