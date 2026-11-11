@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import { SojournerPreloader } from "@/components/preloader/sojourner-preloader";
+import { CustomCursor } from "@/components/ui/custom-cursor";
+import { Sidebar } from "@/components/sidebar/sidebar";
+import { MobileNav } from "@/components/sidebar/mobile-nav";
 import "@sojournerbuilds/mark/token.css";
 import "@sojournerbuilds/mark/veil.css";
 import "./globals.css";
@@ -92,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen bg-[#F8FAFC] text-[#0B0F1A] dark:bg-[#080C14] dark:text-[#F8FAFC] selection:bg-gold-500/20 selection:text-gold-300`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-gold-500/20 selection:text-gold-300`}
       >
         <ThemeProvider
           attribute="class"
@@ -100,7 +104,22 @@ export default function RootLayout({
           enableSystem={true}
           disableTransitionOnChange
         >
-          {children}
+          <SojournerPreloader />
+          <CustomCursor />
+
+          <div className="flex min-h-screen">
+            {/* Desktop Fixed Left Sidebar (iPortfolio style) */}
+            <Sidebar />
+
+            {/* Main Canvas */}
+            <div className="flex-1 flex flex-col min-w-0">
+              {/* Mobile Sticky Navigation Header */}
+              <MobileNav />
+
+              <main className="flex-1">{children}</main>
+            </div>
+          </div>
+
           <Toaster
             position="bottom-right"
             toastOptions={{

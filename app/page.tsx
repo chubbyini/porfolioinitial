@@ -1,12 +1,15 @@
+import { HeroSection } from "@/components/sections/hero-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { SkillsSection } from "@/components/sections/skills-section";
+import { ProjectsSection } from "@/components/sections/projects-section";
+
 export default function HomePage() {
   return (
-    <main className="p-8">
-      <h1 className="text-3xl font-display font-bold gold-gradient-text">
-        Inioluwa Daniel Osibajo
-      </h1>
-      <p className="mt-2 text-muted-foreground">
-        Foundation initialized. Building Phase 1 layout shell...
-      </p>
-    </main>
+    <div className="relative">
+      <HeroSection />
+      <AboutSection />
+      <SkillsSection />
+      <ProjectsSection />
+    </div>
   );
 }
