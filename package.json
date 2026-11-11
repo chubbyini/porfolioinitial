@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^7.0.5",
     "@sojournerbuilds/mark": "^0.1.1",
     "@tailwindcss/typography": "^0.5.15",
     "canvas-confetti": "^1.9.4",
