@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 
 export function SojournerPreloader() {
-  const [loading, setLoading] = React.useState<boolean>(true);
+  const [mounted, setMounted] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [statusIndex, setStatusIndex] = React.useState(0);
 
   const statuses = React.useMemo(
@@ -18,12 +19,21 @@ export function SojournerPreloader() {
   );
 
   React.useEffect(() => {
-    // Check if previously loaded in this session
-    const hasLoaded = sessionStorage.getItem("sojourner_intro_viewed");
-    if (hasLoaded) {
-      setLoading(false);
+    setMounted(true);
+
+    // Bypass check (URL param or session storage)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("nopreload") === "true") {
       return;
     }
+
+    const hasLoaded = sessionStorage.getItem("sojourner_intro_viewed");
+    if (hasLoaded) {
+      return;
+    }
+
+    // First time in session: activate the preloader veil
+    setLoading(true);
 
     // Status message cadence
     const interval = setInterval(() => {
@@ -42,6 +52,10 @@ export function SojournerPreloader() {
     };
   }, [statuses.length]);
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <AnimatePresence mode="wait">
       {loading && (
@@ -52,13 +66,17 @@ export function SojournerPreloader() {
             opacity: 0,
             scale: 1.02,
             transition: {
-              duration: 0.5,
+              duration: 0.4,
               ease: [0.23, 1, 0.32, 1],
             },
           }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#05070D] text-sojourner-bone select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#05070D] text-sojourner-bone select-none overflow-hidden cursor-pointer"
+          onClick={() => {
+            setLoading(false);
+            sessionStorage.setItem("sojourner_intro_viewed", "true");
+          }}
           aria-live="polite"
-          aria-label="Loading Sojourner Builds Portfolio"
+          aria-label="Loading Sojourner Builds Portfolio (Click anywhere to skip)"
         >
           {/* Beaming Ambient Corona */}
           <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-gold-500/15 via-gold-400/10 to-transparent blur-3xl pointer-events-none animate-beacon-pulse" />
@@ -67,7 +85,7 @@ export function SojournerPreloader() {
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
             className="relative flex flex-col items-center"
           >
             <div className="relative p-3 rounded-full border border-gold-500/20 bg-nautical-950/80 shadow-gold-lg">
