@@ -39,7 +39,7 @@ export const servicesData: readonly StudioService[] = [
       "Building practical backend routes, database models, and integrating third-party APIs. Handling form validations, asynchronous requests, and real-time state with clarity.",
     deliverables: [
       "RESTful API route handlers with input validation (Zod)",
-      "PostgreSQL and MongoDB schema modeling and querying",
+      "MongoDB schema modeling and document persistence",
       "Authentication handling and state persistence",
       "Clean error boundaries and optimistic UI updates",
     ],
