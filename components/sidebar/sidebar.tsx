@@ -42,36 +42,29 @@ export function Sidebar() {
   const router = useRouter();
   const [activeSection, setActiveSection] = React.useState<string>("hero");
 
-  // Handle intersection observer when on the home page
+  // Handle scroll spy when on the home page
   React.useEffect(() => {
     if (pathname !== "/") return;
 
-    const sectionElements = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
-      Boolean
-    ) as HTMLElement[];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140;
+      const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
+        Boolean
+      ) as HTMLElement[];
 
-    if (sectionElements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visibleEntry) {
-          setActiveSection(visibleEntry.target.id);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(section.id);
+          break;
         }
-      },
-      {
-        root: null,
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0, 0.25, 0.5, 0.75, 1],
       }
-    );
+    };
 
-    sectionElements.forEach((el) => observer.observe(el));
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
-    return () => observer.disconnect();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   // Handle smooth scroll when navigating from another page to home with hash
@@ -109,13 +102,14 @@ export function Sidebar() {
   };
 
   return (
-    <aside
-      className="hidden lg:flex flex-col justify-between w-[290px] h-screen sticky top-0 border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#080C14] p-6 z-40 select-none overflow-y-auto"
-      aria-label="Main Navigation Sidebar"
-    >
-      {/* Profile Header */}
-      <div className="flex flex-col items-center text-center">
-        {/* Brand Token and Avatar */}
+    <>
+      <aside
+        className="hidden lg:flex flex-col justify-between w-[290px] h-screen fixed inset-y-0 left-0 border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#080C14] p-6 z-40 select-none overflow-y-auto"
+        aria-label="Main Navigation Sidebar"
+      >
+        {/* Profile Header */}
+        <div className="flex flex-col items-center text-center w-full">
+          {/* Brand Token and Avatar */}
         <Link
           href="/"
           onClick={(e) => {
@@ -208,7 +202,7 @@ export function Sidebar() {
       </div>
 
       {/* Footer Controls & Socials */}
-      <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 mt-4">
+      <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 mt-4 shrink-0">
         <div className="flex items-center justify-between">
           {/* Social Links */}
           <div className="flex items-center gap-1 text-zinc-500 dark:text-zinc-400">
@@ -264,5 +258,9 @@ export function Sidebar() {
         </div>
       </div>
     </aside>
+
+    {/* Dedicated spacer to reserve layout space on laptop and desktop screens */}
+    <div className="hidden lg:block w-[290px] shrink-0" aria-hidden="true" />
+  </>
   );
 }
