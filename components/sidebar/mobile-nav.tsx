@@ -3,6 +3,7 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -11,6 +12,8 @@ import { profileData } from "@/data/profile";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
 
@@ -49,13 +52,18 @@ export function MobileNav() {
 
   const handleNavClick = (id: string) => {
     setIsOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const topOffset = element.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({
-        top: topOffset,
-        behavior: "smooth",
-      });
+    if (pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        const topOffset = element.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({
+          top: topOffset,
+          behavior: "smooth",
+        });
+        window.history.pushState(null, "", id === "hero" ? "/" : `/#${id}`);
+      }
+    } else {
+      router.push(id === "hero" ? "/" : `/#${id}`);
     }
   };
 
@@ -63,7 +71,17 @@ export function MobileNav() {
     <>
       <header className="lg:hidden sticky top-0 z-40 w-full border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-[#080C14]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between select-none">
         {/* Brand & Waymark */}
-        <div className="flex items-center gap-3">
+        <Link
+          href="/"
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="flex items-center gap-3 cursor-pointer"
+          aria-label="Return to Overview"
+        >
           <div className="p-0.5 rounded-full border border-zinc-200 dark:border-amber-500/40 bg-zinc-50 dark:bg-zinc-900">
             <SojournerToken size={28} spinning={true} speed="slow" variant="waymark" />
           </div>
@@ -75,7 +93,7 @@ export function MobileNav() {
               Software Engineer
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Actions */}
         <div className="flex items-center gap-2">
@@ -123,7 +141,18 @@ export function MobileNav() {
               <div className="space-y-6">
                 {/* Drawer Header */}
                 <div className="flex items-center justify-between pb-4 border-b border-zinc-200 dark:border-zinc-800">
-                  <div className="flex items-center gap-2.5">
+                  <Link
+                    href="/"
+                    onClick={(e) => {
+                      setIsOpen(false);
+                      if (pathname === "/") {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
+                    className="flex items-center gap-2.5 cursor-pointer"
+                    aria-label="Return to Overview"
+                  >
                     <div className="p-0.5 rounded-full border border-zinc-200 dark:border-amber-500/40 bg-zinc-50 dark:bg-zinc-900">
                       <SojournerToken size={26} spinning={true} speed="slow" variant="waymark" />
                     </div>
@@ -135,7 +164,7 @@ export function MobileNav() {
                         Software Engineer
                       </span>
                     </div>
-                  </div>
+                  </Link>
 
                   <button
                     type="button"

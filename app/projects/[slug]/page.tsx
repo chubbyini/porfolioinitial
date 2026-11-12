@@ -53,14 +53,30 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen px-6 sm:px-12 lg:px-20 py-16 max-w-6xl 2xl:max-w-7xl w-full space-y-12">
-      {/* Back Link */}
-      <Link
-        href="/#projects"
-        className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors press-feedback"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        <span>Return to All Projects</span>
-      </Link>
+      {/* Navigation Breadcrumb & Back Link */}
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+        <Link
+          href="/#projects"
+          className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors press-feedback"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Return to All Projects</span>
+        </Link>
+
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
+          <Link href="/" className="hover:text-foreground transition-colors">
+            Home
+          </Link>
+          <span>/</span>
+          <Link href="/#projects" className="hover:text-foreground transition-colors">
+            Projects
+          </Link>
+          <span>/</span>
+          <span className="text-foreground truncate max-w-[200px] sm:max-w-none font-medium">
+            {project.title}
+          </span>
+        </nav>
+      </div>
 
       {/* Case Study Header */}
       <div className="space-y-4">

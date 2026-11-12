@@ -11,7 +11,7 @@ export const projectsData: readonly Project[] = [
     category: "client",
     client: "PicckR / Vissionnaire Tech Solution",
     role: "Frontend Engineer & Web Developer",
-    year: "2024 — Present",
+    year: "2025 — Present",
     featured: true,
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "SEO Architecture"],
     metrics: [
@@ -38,7 +38,7 @@ export const projectsData: readonly Project[] = [
     category: "client",
     client: "PicckR / Vissionnaire Tech Solution",
     role: "Software Engineer",
-    year: "2024 — Present",
+    year: "2025 — Present",
     featured: true,
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST APIs", "Zod", "WebSockets"],
     metrics: [
@@ -65,7 +65,7 @@ export const projectsData: readonly Project[] = [
     category: "client",
     client: "PicckR",
     role: "Software Engineer",
-    year: "2024 — Present",
+    year: "2025 — Present",
     featured: true,
     stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Map Services", "REST APIs"],
     metrics: [
@@ -91,7 +91,7 @@ export const projectsData: readonly Project[] = [
       "A dark-mode telemetry and communications console designed for real-time channel feeds, mission status reporting, and diagnostic signal streams.",
     category: "product",
     role: "Frontend Engineer & UI Designer",
-    year: "2024",
+    year: "2025",
     featured: true,
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     metrics: [
@@ -117,7 +117,7 @@ export const projectsData: readonly Project[] = [
       "A fast, modern e-commerce application featuring category filtering, instant product search, dynamic cart drawer, and seamless mobile checkout flows.",
     category: "product",
     role: "Full-Stack Developer",
-    year: "2024",
+    year: "2025",
     featured: true,
     stack: ["React", "TypeScript", "Tailwind CSS", "State Management", "Vercel"],
     metrics: [
@@ -144,7 +144,7 @@ export const projectsData: readonly Project[] = [
     category: "client",
     client: "Nature & Nurture Organization",
     role: "Web Developer & Designer",
-    year: "2024",
+    year: "2025",
     featured: true,
     stack: ["JavaScript", "HTML5", "CSS3 / Tailwind", "Netlify", "Responsive Layouts"],
     metrics: [
@@ -169,7 +169,7 @@ export const projectsData: readonly Project[] = [
       "A digital showroom platform designed to highlight high-value products with dynamic specifications, multi-angle media galleries, and live catalog updates.",
     category: "client",
     role: "Full-Stack Developer",
-    year: "2024",
+    year: "2025",
     featured: false,
     stack: ["React", "JavaScript", "REST APIs", "Tailwind CSS", "Netlify"],
     metrics: [
@@ -194,7 +194,7 @@ export const projectsData: readonly Project[] = [
       "The authenticated backend management console for the showroom platform, enabling administrators to create, edit, reorder, and remove product listings in real time (default login: admin).",
     category: "product",
     role: "Frontend Engineer",
-    year: "2024",
+    year: "2025",
     featured: false,
     stack: ["React", "JavaScript", "REST APIs", "Authentication", "Tailwind CSS"],
     metrics: [
@@ -219,7 +219,7 @@ export const projectsData: readonly Project[] = [
       "A full-stack messaging platform featuring instant multi-user messaging, online user status indicators, chat rooms, and persistent message logs.",
     category: "product",
     role: "Full-Stack Developer",
-    year: "2024",
+    year: "2025",
     featured: true,
     stack: ["Node.js", "Express", "Socket.io", "React", "Render"],
     metrics: [
@@ -245,7 +245,7 @@ export const projectsData: readonly Project[] = [
       "A focused application demonstrating state management patterns with Zustand: immutable state transitions, optimistic local updates, persistent cache, and category filtering.",
     category: "product",
     role: "Frontend Engineer",
-    year: "2024",
+    year: "2025",
     featured: false,
     stack: ["React", "Zustand", "TypeScript", "Tailwind CSS", "Render"],
     metrics: [
@@ -271,7 +271,7 @@ export const projectsData: readonly Project[] = [
       "A full-stack web application where developers and product teams capture, categorize, and prioritize engineering ideas, architecture proposals, and task notes.",
     category: "product",
     role: "Full-Stack Developer",
-    year: "2024",
+    year: "2025",
     featured: false,
     stack: ["MongoDB", "Express", "React", "Node.js", "Render"],
     metrics: [
@@ -297,7 +297,7 @@ export const projectsData: readonly Project[] = [
       "A mock server providing realistic book catalog endpoints, filtering, simulated network latency, and JSON responses for frontend developers building client apps.",
     category: "open-source",
     role: "Backend Developer",
-    year: "2024",
+    year: "2025",
     featured: false,
     stack: ["Node.js", "Express", "REST APIs", "JSON Server", "Render"],
     metrics: [
@@ -323,7 +323,7 @@ export const projectsData: readonly Project[] = [
       "A zero-dependency React SVG token suite featuring a clockwise nautical degree dial with a ship sailing counter-clockwise, and an automatic Next.js route transition veil.",
     category: "open-source",
     role: "Author & Maintainer",
-    year: "2024",
+    year: "2025",
     featured: true,
     stack: ["React", "Next.js", "TypeScript", "SVG Engineering", "CSS3", "npm"],
     metrics: [

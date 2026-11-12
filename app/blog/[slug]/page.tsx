@@ -51,14 +51,30 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <article className="min-h-screen px-6 sm:px-12 lg:px-20 py-16 max-w-4xl space-y-12">
-      {/* Back Link */}
-      <Link
-        href="/#blog"
-        className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors press-feedback"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        <span>Return to All Articles</span>
-      </Link>
+      {/* Navigation Breadcrumb & Back Link */}
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+        <Link
+          href="/#blog"
+          className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors press-feedback"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Return to Field Notes & Articles</span>
+        </Link>
+
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
+          <Link href="/" className="hover:text-foreground transition-colors">
+            Home
+          </Link>
+          <span>/</span>
+          <Link href="/#blog" className="hover:text-foreground transition-colors">
+            Articles
+          </Link>
+          <span>/</span>
+          <span className="text-foreground truncate max-w-[200px] sm:max-w-none font-medium">
+            {post.title}
+          </span>
+        </nav>
+      </div>
 
       {/* Article Header */}
       <header className="space-y-6 border-b border-zinc-200 dark:border-zinc-800 pb-8">

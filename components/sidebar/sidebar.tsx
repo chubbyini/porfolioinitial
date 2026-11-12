@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Home,
   User,
@@ -16,6 +17,7 @@ import {
   Mail,
   Github,
   Linkedin,
+  ArrowUpRight,
 } from "lucide-react";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -36,9 +38,14 @@ export const NAV_ITEMS = [
 ] as const;
 
 export function Sidebar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [activeSection, setActiveSection] = React.useState<string>("hero");
 
+  // Handle intersection observer when on the home page
   React.useEffect(() => {
+    if (pathname !== "/") return;
+
     const sectionElements = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
       Boolean
     ) as HTMLElement[];
@@ -65,18 +72,39 @@ export function Sidebar() {
     sectionElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
+
+  // Handle smooth scroll when navigating from another page to home with hash
+  React.useEffect(() => {
+    if (pathname === "/" && typeof window !== "undefined" && window.location.hash) {
+      const hashId = window.location.hash.replace("#", "");
+      const el = document.getElementById(hashId);
+      if (el) {
+        setTimeout(() => {
+          const topOffset = el.getBoundingClientRect().top + window.scrollY - 30;
+          window.scrollTo({ top: topOffset, behavior: "smooth" });
+          setActiveSection(hashId);
+        }, 150);
+      }
+    }
+  }, [pathname]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const topOffset = element.getBoundingClientRect().top + window.scrollY - 30;
-      window.scrollTo({
-        top: topOffset,
-        behavior: "smooth",
-      });
-      setActiveSection(id);
+    if (pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        const topOffset = element.getBoundingClientRect().top + window.scrollY - 30;
+        window.scrollTo({
+          top: topOffset,
+          behavior: "smooth",
+        });
+        setActiveSection(id);
+        window.history.pushState(null, "", id === "hero" ? "/" : `/#${id}`);
+      }
+    } else {
+      // On sub-pages like /projects/[slug] or /blog/[slug], route back to home anchor
+      router.push(id === "hero" ? "/" : `/#${id}`);
     }
   };
 
@@ -88,7 +116,18 @@ export function Sidebar() {
       {/* Profile Header */}
       <div className="flex flex-col items-center text-center">
         {/* Brand Token and Avatar */}
-        <div className="relative group">
+        <Link
+          href="/"
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setActiveSection("hero");
+            }
+          }}
+          className="relative group block cursor-pointer"
+          aria-label="Return to Overview"
+        >
           <div className="relative w-24 h-24 rounded-full p-1 border-2 border-zinc-200 dark:border-amber-500/40 bg-zinc-50 dark:bg-zinc-900 shadow-sm transition-transform duration-300 group-hover:scale-105">
             <Image
               src="/avatar.png"
@@ -107,28 +146,39 @@ export function Sidebar() {
           >
             <SojournerToken size={22} spinning={true} speed="slow" variant="waymark" theme="dark" />
           </div>
-        </div>
+        </Link>
 
         {/* Name and Status */}
-        <div className="mt-4 space-y-1">
-          <h2 className="font-display font-bold text-lg text-foreground tracking-tight">
+        <Link
+          href="/"
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setActiveSection("hero");
+            }
+          }}
+          className="mt-4 space-y-1 block cursor-pointer group"
+          aria-label="Return to Overview"
+        >
+          <h2 className="font-display font-bold text-lg text-foreground tracking-tight group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
             {profileData.preferredName} Osibajo
           </h2>
           <p className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold">
             Software Engineer & Web Developer
           </p>
-        </div>
+        </Link>
 
         {/* Navigation List */}
         <nav className="w-full mt-6 space-y-1 text-left" aria-label="Page Sections">
           {NAV_ITEMS.map((item, idx) => {
             const Icon = item.icon;
-            const isActive = activeSection === item.id;
+            const isActive = pathname === "/" && activeSection === item.id;
 
             return (
               <a
                 key={item.id}
-                href={`#${item.id}`}
+                href={pathname === "/" ? `#${item.id}` : `/#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
                 className={cn(
                   "group relative flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs transition-colors duration-150 press-feedback",

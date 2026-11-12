@@ -18,9 +18,9 @@ export const profileData: ProfileData = {
   ],
   stats: [
     {
-      value: "2+",
-      label: "Years in Engineering",
-      helper: "Building web applications, merchant portals, and dispatch tools",
+      value: "2025",
+      label: "Started in Tech",
+      helper: "Shipping web applications, merchant portals, and dispatch tools",
     },
     {
       value: "12+",

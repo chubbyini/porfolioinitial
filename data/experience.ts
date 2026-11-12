@@ -8,7 +8,7 @@ export const experienceData: readonly ExperienceItem[] = [
     parentCompany: "Subsidiary of Vissionnaire Tech Solution Ltd",
     companyUrl: "https://picckr.com",
     location: "Lagos State, Nigeria (Remote)",
-    period: "Jun 2026 — Present",
+    period: "2025 — Present",
     current: true,
     type: "Full-time",
     summary:
@@ -27,7 +27,7 @@ export const experienceData: readonly ExperienceItem[] = [
     company: "Sojourner Builds",
     companyUrl: "https://www.npmjs.com/package/@sojournerbuilds/mark",
     location: "Independent / Open Source",
-    period: "2024 — Present",
+    period: "2025 — Present",
     current: true,
     type: "Studio / Agency",
     summary:
@@ -44,7 +44,7 @@ export const experienceData: readonly ExperienceItem[] = [
     company: "PicckR",
     companyUrl: "https://picckr.com",
     location: "Lagos, Nigeria",
-    period: "Dec 2025 — Jun 2026",
+    period: "2025",
     current: false,
     type: "Internship",
     summary:
@@ -60,7 +60,7 @@ export const experienceData: readonly ExperienceItem[] = [
     role: "Software Intern",
     company: "carteefy",
     location: "Lagos, Nigeria (Hybrid)",
-    period: "Mar 2025 — Oct 2026",
+    period: "2025",
     current: false,
     type: "Internship",
     summary:
@@ -76,7 +76,7 @@ export const experienceData: readonly ExperienceItem[] = [
     role: "Web Designer Intern",
     company: "stocbase",
     location: "Lagos, Nigeria (Remote)",
-    period: "Nov 2025 — Sep 2026",
+    period: "2025",
     current: false,
     type: "Internship",
     summary:
