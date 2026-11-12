@@ -1,4 +1,5 @@
 import type { ProfileData } from "@/types";
+import { calculateYearsInTech } from "@/lib/utils";
 
 export const profileData: ProfileData = {
   name: "Inioluwa Daniel Osibajo",
@@ -18,8 +19,8 @@ export const profileData: ProfileData = {
   ],
   stats: [
     {
-      value: "2025",
-      label: "Started in Tech",
+      value: calculateYearsInTech("2025-04-01"),
+      label: "Years in Tech",
       helper: "Shipping web applications, merchant portals, and dispatch tools",
     },
     {

@@ -4,8 +4,31 @@ import * as React from "react";
 import { ArrowDown, ArrowUpRight, BookOpen, Terminal } from "lucide-react";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 import { profileData } from "@/data/profile";
+import { calculateYearsInTech } from "@/lib/utils";
 
 export function HeroSection() {
+  // Dynamically compute Years in Tech based on April 2025 start date
+  const [yearsInTech, setYearsInTech] = React.useState<string>(() =>
+    calculateYearsInTech("2025-04-01")
+  );
+
+  React.useEffect(() => {
+    setYearsInTech(calculateYearsInTech("2025-04-01"));
+  }, []);
+
+  const stats = React.useMemo(() => {
+    return profileData.stats.map((stat) => {
+      if (stat.label === "Years in Tech" || stat.label === "Started in Tech") {
+        return {
+          ...stat,
+          value: yearsInTech,
+          label: "Years in Tech",
+        };
+      }
+      return stat;
+    });
+  }, [yearsInTech]);
+
   const roles = React.useMemo(
     () => [
       "Junior Software Engineer at PicckR",
@@ -110,7 +133,7 @@ export function HeroSection() {
 
         {/* Credibility & Highlights Strip */}
         <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-border/70">
-          {profileData.stats.map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="space-y-0.5">
               <span className="font-display font-bold text-2xl sm:text-3xl text-foreground gold-gradient-text block">
                 {stat.value}
