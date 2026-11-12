@@ -44,6 +44,13 @@ html {
   max-width: 100vw;
 }
 
+/* Scroll margin offset for fixed mobile header */
+@media (max-width: 1023px) {
+  section[id] {
+    scroll-margin-top: 68px;
+  }
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);

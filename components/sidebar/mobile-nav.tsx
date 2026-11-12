@@ -92,7 +92,7 @@ export function MobileNav() {
 
   return (
     <>
-      <header className="lg:hidden sticky top-0 z-40 w-full max-w-full border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-[#080C14]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between select-none">
+      <header className="lg:hidden fixed top-0 inset-x-0 z-40 w-full max-w-full h-[60px] border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-[#080C14]/95 backdrop-blur-md px-4 flex items-center justify-between select-none">
         {/* Brand & Waymark */}
         <Link
           href="/"
@@ -133,6 +133,9 @@ export function MobileNav() {
           </button>
         </div>
       </header>
+
+      {/* Spacer to preserve document flow and prevent content from sliding under the fixed mobile navbar */}
+      <div className="lg:hidden h-[60px] shrink-0" aria-hidden="true" />
 
       {/* Render Drawer via React Portal directly into document.body with AnimatePresence to ensure no off-screen DOM overflow when closed */}
       {mounted &&
