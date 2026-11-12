@@ -128,7 +128,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         <script
           type="application/ld+json"
@@ -136,12 +136,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-gold-500/20 selection:text-gold-300`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen w-full max-w-full overflow-x-hidden bg-[var(--background)] text-[var(--foreground)] selection:bg-gold-500/20 selection:text-gold-300`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem={true}
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {/* Accessibility: Skip to Content */}
@@ -155,16 +155,16 @@ export default function RootLayout({
           <SojournerPreloader />
           <CustomCursor />
 
-          <div className="flex min-h-screen">
+          <div className="flex min-h-screen w-full max-w-full overflow-x-hidden">
             {/* Desktop Fixed Left Sidebar (iPortfolio style) */}
             <Sidebar />
 
             {/* Main Canvas */}
-            <div className="flex-1 flex flex-col min-w-0">
+            <div className="flex-1 flex flex-col min-w-0 w-full max-w-full overflow-x-hidden">
               {/* Mobile Sticky Navigation Header */}
               <MobileNav />
 
-              <main id="main-content" className="flex-1">
+              <main id="main-content" className="flex-1 w-full max-w-full">
                 {children}
               </main>
             </div>

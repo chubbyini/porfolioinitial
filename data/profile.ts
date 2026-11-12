@@ -12,7 +12,7 @@ export const profileData: ProfileData = {
   location: "Nigeria",
   availability: "Available for Q1/Q2 Projects",
   bio: [
-    "I am a software engineer and web developer at PicckR (subsidiary of Vissionnaire Tech Solution Ltd), building responsive web applications, merchant portals, and logistics dispatch interfaces.",
+    "I am a software engineer and web developer at PicckR, building responsive web applications, merchant portals, and logistics dispatch interfaces.",
     "My engineering focus is centered on React, Next.js, and TypeScript, combining clean design engineering, tactile micro-interactions, and reliable API integrations. I also conduct applied NLP research, with a peer-reviewed published paper on zero-shot summarization and question generation.",
     "Under Sojourner Builds, my personal development initiative, I create open-source developer tooling and UI tokens, including the published @sojournerbuilds/mark package on npm.",
   ],
