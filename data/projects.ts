@@ -91,7 +91,7 @@ export const projectsData: readonly Project[] = [
       "A dark-mode telemetry and communications console designed for real-time channel feeds, mission status reporting, and diagnostic signal streams.",
     category: "product",
     role: "Frontend Engineer & UI Designer",
-    year: "2025",
+    year: "2026",
     featured: true,
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     metrics: [
@@ -117,7 +117,7 @@ export const projectsData: readonly Project[] = [
       "A fast, modern e-commerce application featuring category filtering, instant product search, dynamic cart drawer, and seamless mobile checkout flows.",
     category: "product",
     role: "Full-Stack Developer",
-    year: "2025",
+    year: "2026",
     featured: true,
     stack: ["React", "TypeScript", "Tailwind CSS", "State Management", "Vercel"],
     metrics: [
@@ -144,7 +144,7 @@ export const projectsData: readonly Project[] = [
     category: "client",
     client: "Nature & Nurture Organization",
     role: "Web Developer & Designer",
-    year: "2025",
+    year: "2026",
     featured: true,
     stack: ["JavaScript", "HTML5", "CSS3 / Tailwind", "Netlify", "Responsive Layouts"],
     metrics: [
@@ -245,7 +245,7 @@ export const projectsData: readonly Project[] = [
       "A focused application demonstrating state management patterns with Zustand: immutable state transitions, optimistic local updates, persistent cache, and category filtering.",
     category: "product",
     role: "Frontend Engineer",
-    year: "2025",
+    year: "2026",
     featured: false,
     stack: ["React", "Zustand", "TypeScript", "Tailwind CSS", "Render"],
     metrics: [
@@ -271,7 +271,7 @@ export const projectsData: readonly Project[] = [
       "A full-stack web application where developers and product teams capture, categorize, and prioritize engineering ideas, architecture proposals, and task notes.",
     category: "product",
     role: "Full-Stack Developer",
-    year: "2025",
+    year: "2026",
     featured: false,
     stack: ["MongoDB", "Express", "React", "Node.js", "Render"],
     metrics: [
@@ -297,7 +297,7 @@ export const projectsData: readonly Project[] = [
       "A mock server providing realistic book catalog endpoints, filtering, simulated network latency, and JSON responses for frontend developers building client apps.",
     category: "open-source",
     role: "Backend Developer",
-    year: "2025",
+    year: "2026",
     featured: false,
     stack: ["Node.js", "Express", "REST APIs", "JSON Server", "Render"],
     metrics: [
@@ -323,7 +323,7 @@ export const projectsData: readonly Project[] = [
       "A zero-dependency React SVG token suite featuring a clockwise nautical degree dial with a ship sailing counter-clockwise, and an automatic Next.js route transition veil.",
     category: "open-source",
     role: "Author & Maintainer",
-    year: "2025",
+    year: "2026",
     featured: true,
     stack: ["React", "Next.js", "TypeScript", "SVG Engineering", "CSS3", "npm"],
     metrics: [
