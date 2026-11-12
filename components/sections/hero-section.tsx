@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowDown, ArrowUpRight, BookOpen, Terminal } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BookOpen, Terminal, FileBadge } from "lucide-react";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 import { profileData } from "@/data/profile";
 import { calculateYearsInTech } from "@/lib/utils";
@@ -118,6 +118,16 @@ export function HeroSection() {
           >
             <span>Get in Touch</span>
             <ArrowUpRight className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+          </button>
+
+          {/* Manifest (CV) Quick Link */}
+          <button
+            type="button"
+            onClick={() => scrollTo("manifest")}
+            className="px-4 py-3 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-200 font-mono text-xs flex items-center gap-2 transition-colors press-feedback"
+          >
+            <FileBadge className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+            <span>Service Manifest (CV)</span>
           </button>
 
           {/* Research Quick Link */}

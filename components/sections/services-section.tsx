@@ -41,7 +41,7 @@ export function ServicesSection() {
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
-            07 // CORE CAPABILITIES
+            08 // CORE CAPABILITIES
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
             Engineering Focus. <span className="gold-gradient-text">What I build.</span>

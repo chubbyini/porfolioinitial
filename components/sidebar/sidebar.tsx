@@ -18,6 +18,7 @@ import {
   Github,
   Linkedin,
   ArrowUpRight,
+  FileBadge,
 } from "lucide-react";
 import { SojournerToken } from "@sojournerbuilds/mark/tokens";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -30,6 +31,7 @@ export const NAV_ITEMS = [
   { id: "skills", label: "Skills & Stack", icon: Sparkles },
   { id: "projects", label: "Featured Work", icon: Briefcase },
   { id: "experience", label: "Experience", icon: History },
+  { id: "manifest", label: "Manifest (CV)", icon: FileBadge },
   { id: "research", label: "NLP Research", icon: FileText },
   { id: "services", label: "Capabilities", icon: Wrench },
   { id: "blog", label: "Articles", icon: BookOpen },

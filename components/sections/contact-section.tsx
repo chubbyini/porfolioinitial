@@ -109,7 +109,7 @@ export function ContactSection() {
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
-            10 // INITIATE CONTACT
+            11 // INITIATE CONTACT
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
             Let&apos;s build something <span className="gold-gradient-text">exceptional.</span>

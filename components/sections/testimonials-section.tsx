@@ -99,7 +99,7 @@ export function TestimonialsSection() {
           <div className="space-y-2">
             <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-              <span>09 // RECOMMENDATIONS & ENDORSEMENTS</span>
+              <span>10 // RECOMMENDATIONS & ENDORSEMENTS</span>
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
               Peer & Manager Reviews. <span className="gold-gradient-text">Verified Collaboration.</span>

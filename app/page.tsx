@@ -3,6 +3,7 @@ import { AboutSection } from "@/components/sections/about-section";
 import { SkillsSection } from "@/components/sections/skills-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
+import { ManifestSection } from "@/components/sections/manifest-section";
 import { ResearchSection } from "@/components/sections/research-section";
 import { ServicesSection } from "@/components/sections/services-section";
 import { BlogSection } from "@/components/sections/blog-section";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <SkillsSection />
       <ProjectsSection />
       <ExperienceSection />
+      <ManifestSection />
       <ResearchSection />
       <ServicesSection />
       <BlogSection />

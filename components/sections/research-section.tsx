@@ -23,7 +23,7 @@ export function ResearchSection() {
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
-            06 // ACADEMIC & APPLIED RESEARCH
+            07 // ACADEMIC & APPLIED RESEARCH
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
             Peer-reviewed NLP. <span className="gold-gradient-text">Zero-shot synthesis.</span>

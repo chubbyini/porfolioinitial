@@ -17,7 +17,7 @@ export function BlogSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
             <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
-              08 // ENGINEERING ARTICLES
+              09 // ENGINEERING ARTICLES
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
               Architecture teardowns. <span className="gold-gradient-text">Lessons from the field.</span>
