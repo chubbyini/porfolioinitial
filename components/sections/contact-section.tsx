@@ -105,7 +105,7 @@ export function ContactSection() {
       id="contact"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/20 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-7xl 2xl:max-w-[1600px] w-full space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
@@ -122,7 +122,7 @@ export function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Info Cards */}
-          <div className="lg:col-span-5 space-y-5">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-5">
             <div className="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm space-y-5">
               <h3 className="font-display font-bold text-lg text-foreground">
                 Direct Channels & Availability
@@ -192,7 +192,7 @@ export function ContactSection() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 xl:col-span-8">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm space-y-4"

@@ -20,7 +20,7 @@ export function AboutSection() {
       id="about"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/20 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-7xl 2xl:max-w-[1600px] w-full space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
@@ -29,7 +29,7 @@ export function AboutSection() {
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
             Crafted by practice. <span className="gold-gradient-text">Backed by research.</span>
           </h2>
-          <p className="text-muted text-sm sm:text-base max-w-2xl font-sans">
+          <p className="text-muted text-sm sm:text-base max-w-3xl font-sans">
             I build responsive web software with focus on clean architecture, tactile micro-interactions,
             and reliable API integrations.
           </p>
@@ -38,7 +38,7 @@ export function AboutSection() {
         {/* Narrative & Profile Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Portrait & Snapshot Card */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 xl:col-span-4 2xl:col-span-3 space-y-4">
             <div className="relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 shadow-sm dark:shadow-md">
               <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800/80">
                 <Image
@@ -98,7 +98,7 @@ export function AboutSection() {
           </div>
 
           {/* Right Column: Bio Prose & Focus Pillars */}
-          <div className="lg:col-span-7 space-y-6 text-sm sm:text-base text-muted leading-relaxed">
+          <div className="lg:col-span-7 xl:col-span-8 2xl:col-span-9 space-y-6 text-sm sm:text-base text-muted leading-relaxed">
             {profileData.bio.map((paragraph, idx) => (
               <p key={idx} className="font-sans">
                 {paragraph}

@@ -41,7 +41,7 @@ export function ProjectsSection() {
       id="projects"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/20 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-7xl 2xl:max-w-[1700px] w-full space-y-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
@@ -77,7 +77,7 @@ export function ProjectsSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
               key={project.id}

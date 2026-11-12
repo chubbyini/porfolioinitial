@@ -41,7 +41,7 @@ export function HeroSection() {
       {/* Ambient background glow */}
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-amber-500/10 dark:from-amber-400/5 to-transparent blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl space-y-8 relative z-10">
+      <div className="max-w-6xl 2xl:max-w-7xl w-full space-y-8 relative z-10">
         {/* Eyebrow Label */}
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-amber-500/30 bg-zinc-100 dark:bg-amber-500/10 text-zinc-800 dark:text-amber-300 font-mono text-xs tracking-wider uppercase backdrop-blur-sm">
           <Terminal className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
@@ -68,10 +68,10 @@ export function HeroSection() {
         </div>
 
         {/* Practitioner Positioning Statement */}
-        <p className="text-base sm:text-xl text-muted leading-relaxed max-w-2xl font-sans">
+        <p className="text-base sm:text-xl text-muted leading-relaxed max-w-3xl 2xl:max-w-4xl font-sans">
           I build responsive web applications, merchant portals, and interactive interfaces. Currently engineering at{" "}
-          <strong className="text-foreground font-semibold">PicckR</strong> and{" "}
-          <strong className="text-foreground font-semibold">Vissionnaire Tech Solution Ltd</strong>, while authoring open-source tooling and UI components under{" "}
+          <strong className="text-foreground font-semibold">PicckR</strong> (subsidiary of{" "}
+          <strong className="text-foreground font-semibold">Vissionnaire Tech Solution Ltd</strong>), while authoring open-source tooling and UI components under{" "}
           <strong className="text-foreground font-semibold">Sojourner Builds</strong>.
         </p>
 

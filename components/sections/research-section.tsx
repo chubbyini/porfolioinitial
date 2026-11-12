@@ -19,7 +19,7 @@ export function ResearchSection() {
       id="research"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/20 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-6xl 2xl:max-w-7xl w-full space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">

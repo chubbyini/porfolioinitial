@@ -17,7 +17,7 @@ export function ExperienceSection() {
       id="experience"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/10 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-6xl 2xl:max-w-7xl w-full space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
@@ -26,9 +26,9 @@ export function ExperienceSection() {
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
             Work History & Experience. <span className="gold-gradient-text">Measured in delivery.</span>
           </h2>
-          <p className="text-muted text-sm sm:text-base max-w-2xl font-sans">
-            Hands-on software development across logistics products at PicckR, web applications at
-            Vissionnaire, open-source tooling under Sojourner Builds, and published NLP research.
+          <p className="text-muted text-sm sm:text-base max-w-3xl font-sans">
+            Hands-on software development across logistics products at PicckR (subsidiary of
+            Vissionnaire Tech Solution Ltd), open-source tooling under Sojourner Builds, and published NLP research.
           </p>
         </div>
 
@@ -64,8 +64,13 @@ export function ExperienceSection() {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 mt-1 text-sm font-semibold text-amber-700 dark:text-amber-300">
+                    <div className="flex items-center gap-2 mt-1 text-sm font-semibold text-amber-700 dark:text-amber-300 flex-wrap">
                       <span>{exp.company}</span>
+                      {exp.parentCompany && (
+                        <span className="text-[11px] font-mono font-normal text-zinc-600 dark:text-zinc-400 px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700">
+                          {exp.parentCompany}
+                        </span>
+                      )}
                       {exp.companyUrl && (
                         <Link
                           href={exp.companyUrl}

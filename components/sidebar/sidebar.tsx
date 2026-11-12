@@ -117,12 +117,6 @@ export function Sidebar() {
           <p className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold">
             Software Engineer & Web Developer
           </p>
-
-          {/* Operational Status Pill */}
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-emerald-300 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 font-mono text-[11px] mt-1.5 font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Shipping in Production</span>
-          </div>
         </div>
 
         {/* Navigation List */}

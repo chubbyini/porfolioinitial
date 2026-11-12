@@ -12,7 +12,7 @@ export function BlogSection() {
       id="blog"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/20 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-7xl 2xl:max-w-[1600px] w-full space-y-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">

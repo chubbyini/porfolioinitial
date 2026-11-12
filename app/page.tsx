@@ -24,47 +24,49 @@ export default function HomePage() {
       <ContactSection />
 
       {/* Global Footer */}
-      <footer className="px-6 sm:px-12 lg:px-16 py-12 border-t border-border bg-card/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted">
-        <div>
-          <span>© {new Date().getFullYear()} Inioluwa Daniel Osibajo.</span>
-          <span className="text-gold-400/90 ml-2">Built with Sojourner craft.</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <a
-            href="https://github.com/chubbyini"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gold-400 transition-colors"
-          >
-            GitHub
-          </a>
-          <span>•</span>
-          <a
-            href="https://www.linkedin.com/in/inioluwa-osibajo-b23531238/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gold-400 transition-colors"
-          >
-            LinkedIn
-          </a>
-          <span>•</span>
-          <a
-            href="https://dev.to/osibajo_inioluwa_74301be0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gold-400 transition-colors"
-          >
-            Dev.to
-          </a>
-          <span>•</span>
-          <a
-            href="https://medium.com/@inioluwaosibajo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gold-400 transition-colors"
-          >
-            Medium
-          </a>
+      <footer className="px-6 sm:px-12 lg:px-16 py-12 border-t border-border bg-card/60 text-xs font-mono text-muted">
+        <div className="max-w-7xl 2xl:max-w-[1700px] w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span>© {new Date().getFullYear()} Inioluwa Daniel Osibajo.</span>
+            <span className="text-gold-400/90 ml-2">Built with Sojourner craft.</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/chubbyini"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-400 transition-colors"
+            >
+              GitHub
+            </a>
+            <span>•</span>
+            <a
+              href="https://www.linkedin.com/in/inioluwa-osibajo-b23531238/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-400 transition-colors"
+            >
+              LinkedIn
+            </a>
+            <span>•</span>
+            <a
+              href="https://dev.to/osibajo_inioluwa_74301be0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-400 transition-colors"
+            >
+              Dev.to
+            </a>
+            <span>•</span>
+            <a
+              href="https://medium.com/@inioluwaosibajo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-400 transition-colors"
+            >
+              Medium
+            </a>
+          </div>
         </div>
       </footer>
     </div>

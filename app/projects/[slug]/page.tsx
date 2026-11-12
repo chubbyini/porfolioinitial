@@ -52,7 +52,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
   const nextProject = projectsData[(projectIndex + 1) % projectsData.length];
 
   return (
-    <div className="min-h-screen px-6 sm:px-12 lg:px-20 py-16 max-w-5xl space-y-12">
+    <div className="min-h-screen px-6 sm:px-12 lg:px-20 py-16 max-w-6xl 2xl:max-w-7xl w-full space-y-12">
       {/* Back Link */}
       <Link
         href="/#projects"

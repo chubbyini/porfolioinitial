@@ -36,6 +36,7 @@ export interface ExperienceItem {
   readonly id: string;
   readonly role: string;
   readonly company: string;
+  readonly parentCompany?: string;
   readonly companyUrl?: string;
   readonly location: string;
   readonly period: string;

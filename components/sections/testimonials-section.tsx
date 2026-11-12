@@ -33,7 +33,7 @@ export function TestimonialsSection() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="max-w-4xl space-y-12">
+      <div className="max-w-6xl 2xl:max-w-7xl w-full space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">

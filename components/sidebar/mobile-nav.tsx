@@ -84,12 +84,6 @@ export function MobileNav() {
         )}
       >
         <div className="space-y-6">
-          {/* Status pill in drawer */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-300 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 font-mono text-xs font-semibold">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Shipping in Production</span>
-          </div>
-
           {/* Navigation Links */}
           <nav className="space-y-1" aria-label="Mobile Navigation">
             {NAV_ITEMS.map((item, idx) => {

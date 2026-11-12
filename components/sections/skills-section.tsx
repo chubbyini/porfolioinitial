@@ -83,7 +83,7 @@ export function SkillsSection() {
       id="skills"
       className="px-6 sm:px-12 lg:px-16 py-20 border-b border-border bg-card/10 relative"
     >
-      <div className="max-w-5xl space-y-12">
+      <div className="max-w-7xl 2xl:max-w-[1600px] w-full space-y-12">
         {/* Section Header */}
         <div className="space-y-2">
           <div className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold tracking-widest uppercase">
@@ -92,14 +92,14 @@ export function SkillsSection() {
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-foreground tracking-tight">
             Tools & Technologies. <span className="gold-gradient-text">Shipped in Production.</span>
           </h2>
-          <p className="text-muted text-sm sm:text-base max-w-2xl font-sans">
+          <p className="text-muted text-sm sm:text-base max-w-3xl font-sans">
             A clear overview of the technologies I use across frontend engineering, backend development,
             applied NLP research, and workflow tooling.
           </p>
         </div>
 
         {/* Grouped Skills Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {skillCategories.map((category) => (
             <div
               key={category.id}
