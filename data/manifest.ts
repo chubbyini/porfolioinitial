@@ -1,6 +1,6 @@
 /**
- * Official Curriculum Vitae / Service Manifest data for Inioluwa Daniel Osibajo.
- * Transcribed verbatim from official 2026 Curriculum Vitae.
+ * Updated Curriculum Vitae / Service Manifest data for Inioluwa Daniel Osibajo.
+ * Transcribed verbatim from the latest 2026 concise CV.
  */
 
 export interface ManifestExperience {
@@ -8,207 +8,133 @@ export interface ManifestExperience {
   readonly company: string;
   readonly period: string;
   readonly location: string;
-  readonly type: string;
   readonly bullets: readonly string[];
+  readonly stack?: readonly string[];
 }
 
-export interface ManifestResearch {
-  readonly title: string;
-  readonly journal: string;
-  readonly date: string;
-  readonly description: string;
-  readonly metrics: readonly { readonly label: string; readonly value: string }[];
-  readonly highlights: readonly { readonly label: string; readonly value: string }[];
-}
-
-export interface ManifestProduct {
+export interface ManifestProject {
   readonly title: string;
   readonly subtitle: string;
-  readonly tags: readonly string[];
   readonly description: string;
+  readonly stack: readonly string[];
 }
 
 export interface ManifestEducation {
+  readonly title: string;
   readonly institution: string;
-  readonly degree: string;
-  readonly honors?: string;
   readonly date: string;
   readonly details?: string;
+  readonly bullets?: readonly string[];
 }
 
 export interface ManifestData {
   readonly header: {
     readonly name: string;
     readonly title: string;
-    readonly degrees: string;
     readonly location: string;
     readonly email: string;
     readonly phone: string;
-    readonly links: readonly { readonly label: string; readonly url: string }[];
+    readonly github: string;
+    readonly linkedin: string;
   };
-  readonly executiveSummary: string;
-  readonly technicalSkills: readonly {
-    readonly category: string;
-    readonly skills: string;
-  }[];
+  readonly summary: string;
   readonly experiences: readonly ManifestExperience[];
-  readonly research: ManifestResearch;
-  readonly products: readonly ManifestProduct[];
+  readonly projects: readonly ManifestProject[];
   readonly writing: readonly {
     readonly title: string;
     readonly platform: string;
     readonly url: string;
   }[];
-  readonly educationAndService: readonly ManifestEducation[];
+  readonly education: readonly ManifestEducation[];
+  readonly skills: {
+    readonly languages: string;
+    readonly frontend: string;
+    readonly backend: string;
+    readonly architecture: string;
+    readonly tooling: string;
+    readonly nlp: string;
+  };
 }
 
 export const manifestData: ManifestData = {
   header: {
-    name: "INIOLUWA DANIEL OSIBAJO",
-    title: "Software Engineer & Systems Architect",
-    degrees: "Computer Science B.Sc. (Hons)",
+    name: "Inioluwa Daniel Osibajo",
+    title: "Software Engineer, Frontend and Full-Stack",
     location: "Lagos, Nigeria",
     email: "inioluwaosibajo@gmail.com",
     phone: "+234 907 123 0347",
-    links: [
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/inioluwa-osibajo-b23531238/" },
-      { label: "GitHub", url: "https://github.com/chubbyini" },
-      { label: "Medium", url: "https://medium.com/@inioluwaosibajo" },
-    ],
+    github: "https://github.com/chubbyini",
+    linkedin: "https://www.linkedin.com/in/inioluwa-osibajo-b02231235/",
   },
-  executiveSummary:
-    "Software Engineer and published Computer Science researcher specializing in React, Next.js, TypeScript, and Node.js. Proven track record of architecting the operational backbone for logistics networks—building high-density B2B administrative portals, automated driver assignment systems, and auditable financial reconciliation dashboards. Driven by systems architecture, operational scaling, and AI research, with a commitment to clean code, modular permissions, and project-based technical mentorship.",
-  technicalSkills: [
-    {
-      category: "Languages",
-      skills: "TypeScript, JavaScript (ES6+), Python, SQL, HTML5, CSS3",
-    },
-    {
-      category: "Frontend & State",
-      skills: "React 19, Next.js (App Router), Tailwind CSS, shadcn/ui, TanStack Query/Table, Zustand",
-    },
-    {
-      category: "Backend & Realtime",
-      skills: "Node.js, Express.js, RESTful APIs, WebSockets (Socket.io), Mapbox Geocoding API (v5/v6)",
-    },
-    {
-      category: "AI & NLP Research",
-      skills: "Hugging Face Transformers (BERT, BART, T5), SpaCy, NLTK, Sentence Transformers, TextRank",
-    },
-    {
-      category: "Architecture & Security",
-      skills: "Dynamic RBAC Permission Matrices, Composable Filters, Server-Side Pagination, Audit Trails",
-    },
-    {
-      category: "Developer Tooling",
-      skills: "Git, GitHub, Cypress (E2E), Vite, Vercel, Cloudflare, WordPress",
-    },
-  ],
+  summary:
+    "Software engineer building admin platforms, dashboards and mobile-first commerce products with React, Next.js, TypeScript and Node.js. Experience with real-time features, server-side data grids, access control and geospatial APIs. B.Sc. Computer Science, with a peer-reviewed NLP publication and technical writing on Medium.",
   experiences: [
     {
       role: "Junior Software Engineer",
       company: "PicckR",
+      location: "Lagos, Nigeria (Remote)",
       period: "Jun 2026 – Present",
-      location: "Lagos State, Nigeria (Remote)",
-      type: "Full-time",
       bullets: [
-        "Architect and maintain the ops layer behind PicckR’s logistics network, engineering administrative tools for end-to-end booking lifecycles, manual/automated rider assignments, pricing configuration, and geospatial zoning.",
-        "Engineered high-density transaction dashboards featuring previous-balance-to-ledger-balance audit trails, enabling finance teams to trace wallet mutations and reconcile accounts with zero support escalations.",
-        "Refactored Role-Based Access Control (RBAC) into a dynamic row-and-column permission matrix, eliminating brittle conditional rendering and centralizing route-level security for admin roles.",
-        "Integrated real-time WebSockets for live rider tracking and executed the migration of Mapbox Geocoding API from v5 to v6 across web applications, achieving a 95% QA Go-Live pass rate.",
+        "Maintain the admin portal behind a logistics network: booking lifecycles, manual and automated rider assignment, pricing configuration and geospatial zoning.",
+        "Built transaction dashboards with previous-balance to ledger-balance audit trails, so finance teams can trace wallet mutations and reconcile accounts.",
+        "Refactored role-based access control into a dynamic row-and-column permission matrix, replacing brittle conditional rendering and centralizing route-level access.",
+        "Integrated WebSockets for live rider tracking and migrated the Mapbox Geocoding API from v5 to v6 across web apps, with a 95% QA pass rate at go-live.",
       ],
+      stack: ["React", "Next.js", "TypeScript", "WebSockets", "Mapbox"],
     },
     {
       role: "Software Engineering Intern",
       company: "PicckR",
+      location: "Lagos, Nigeria (Remote)",
       period: "Dec 2025 – Jun 2026",
-      location: "Lagos State, Nigeria (Remote)",
-      type: "Internship",
       bullets: [
-        "Developed core frontend modules for the enterprise logistics portal, replacing static client lists with server-side assignment search and paginated data grids.",
-        "Authored comprehensive API documentation and collaborated across cross-functional engineering teams to standardize UI state machines and resolve production edge cases.",
+        "Developed frontend modules for the logistics portal, replacing static client lists with server-side search and paginated data grids.",
+        "Wrote API documentation and worked with cross-functional engineers to standardize UI state machines and fix production edge cases.",
       ],
     },
     {
       role: "Software Developer Intern",
       company: "Carteefy",
+      location: "Lagos, Nigeria (Hybrid)",
       period: "Mar 2025 – Oct 2026",
-      location: "Lagos State, Nigeria (Hybrid)",
-      type: "Internship",
       bullets: [
-        "Engineered mobile-first e-commerce and affiliate storefront infrastructure connecting digital product vendors with content creators and influencers.",
-        "Designed responsive catalog browsing interfaces, tracking link generation workflows, and seller performance dashboards optimized for mobile web users.",
+        "Built mobile-first e-commerce and affiliate storefront infrastructure connecting digital product vendors with content creators.",
+        "Designed catalog browsing, tracking-link generation and seller performance dashboards for mobile web.",
       ],
     },
     {
-      role: "Web Designer & Frontend Intern",
+      role: "Web Designer and Frontend Intern",
       company: "STOCBASE",
+      location: "Lagos, Nigeria (Remote, seasonal)",
       period: "Nov 2025 – Sep 2026",
-      location: "Lagos State, Nigeria (Remote)",
-      type: "Seasonal",
       bullets: [
-        "Built modular web storefronts, interactive service portfolios, and client landing pages focusing on clean component breakdown and fast page render times.",
+        "Built modular web storefronts, service portfolios and client landing pages with clean component structure and fast renders.",
       ],
     },
     {
       role: "Web Designer Intern",
       company: "Ayomih",
+      location: "Lagos, Nigeria (Hybrid)",
       period: "Aug 2024 – Nov 2024",
-      location: "Lagos State, Nigeria (Hybrid)",
-      type: "Internship",
       bullets: [
-        "Designed conversion-focused WordPress e-commerce websites and custom sales analytics dashboards, providing business owners with actionable revenue and lead conversion insights.",
-      ],
-    },
-    {
-      role: "Network Intern",
-      company: "NNPC Multispecialty Hospital (NMSH)",
-      period: "Aug 2023 – Feb 2024",
-      location: "Lagos State, Nigeria (On-site)",
-      type: "Internship",
-      bullets: [
-        "Maintained enterprise LAN/WAN network infrastructure, configured switch/router routing tables, and managed endpoint connectivity across clinical departments.",
+        "Built WordPress e-commerce sites and sales analytics dashboards showing revenue and lead conversion.",
       ],
     },
   ],
-  research: {
-    title: "Hybrid Zero-Shot NLP Pipeline for Text Summarization and Question Generation",
-    journal: "International Journal of Research and Innovation in Applied Science (IJRIAS)",
-    date: "Published Aug 2, 2025",
-    description:
-      "Architected a zero-shot NLP pipeline combining BERT (with TextRank graph ranking) for extractive summarization, BART for abstractive summarization, and T5 for contextual Multiple-Choice Question (MCQ) generation. Designed specifically for resource-constrained environments to execute on a single 12 GB GPU without model fine-tuning.",
-    metrics: [
-      { label: "BERTScore F1", value: "0.87" },
-      { label: "ROUGE-1/L", value: "0.54" },
-      { label: "METEOR", value: "0.35" },
-      { label: "BLEU", value: "0.20" },
-    ],
-    highlights: [
-      { label: "Human MCQ Relevance", value: "80% (Outperforming GPT-3)" },
-      { label: "Student Study", value: "85% Proficiency (>60%)" },
-    ],
-  },
-  products: [
+  projects: [
     {
       title: "Shopa",
-      subtitle: "Mobile-First WhatsApp Commerce Infrastructure",
-      tags: ["TypeScript", "Next.js", "QR Generation", "Realtime Analytics"],
+      subtitle: "WhatsApp Commerce Platform",
       description:
-        "Engineered e-commerce infrastructure tailored for Nigeria’s informal markets, enabling merchants to generate WhatsApp storefronts, dynamic QR codes, and sales analytics directly from mobile devices.",
+        "Built commerce infrastructure for informal markets: merchants generate WhatsApp storefronts, dynamic QR codes and sales analytics from a phone.",
+      stack: ["TypeScript", "Next.js", "QR generation", "realtime analytics"],
     },
     {
       title: "Crimson Uplink",
-      subtitle: "Automated NLP Content Engine",
-      tags: ["Python", "Hugging Face", "NLP Signal Scoring", "Multi-Platform Publishing"],
+      subtitle: "Automated Content Engine",
       description:
-        "Built an automated content pipeline that ingests technical signals, scores relevance using zero-shot NLP models, and automatically syndicates approved content across publishing channels.",
-    },
-    {
-      title: "The Khal System",
-      subtitle: "Project-Based Pedagogical Framework",
-      tags: ["Engineering Mentorship", "System Architecture"],
-      description:
-        "Created a developer curriculum designed to teach engineers system fundamentals beneath abstraction layers and position AI as an aligned research collaborator rather than a shortcut.",
+        "Built a pipeline that ingests technical signals, scores relevance with zero-shot NLP models and publishes approved content across channels.",
+      stack: ["Python", "Hugging Face"],
     },
   ],
   writing: [
@@ -223,18 +149,33 @@ export const manifestData: ManifestData = {
       url: "https://medium.com/@inioluwaosibajo/the-permission-matrix-rows-columns-and-the-cheat-code-for-admin-roles",
     },
   ],
-  educationAndService: [
+  education: [
     {
-      institution: "Air Force Institute of Technology (AFIT)",
-      degree: "Bachelor of Science (B.Sc.) in Computer Science",
-      honors: "Second Class Upper Division",
-      date: "Graduated Sept 9, 2025",
+      title: "B.Sc. Computer Science, Second Class Upper Division",
+      institution: "Air Force Institute of Technology (AFIT), Kaduna, Nigeria",
+      date: "Graduated Sep 2025",
     },
     {
-      institution: "National Youth Service Corps (NYSC)",
-      degree: "Corps Member & Secondary Educator",
-      honors: "Economics & Business Studies",
+      title: "National Youth Service Corps (NYSC)",
+      institution: "Corps Member and Secondary Educator, Economics and Business Studies",
       date: "2026",
     },
+    {
+      title: "Hybrid Zero-Shot NLP Pipeline for Text Summarization and Question Generation",
+      institution:
+        "International Journal of Research and Innovation in Applied Science (IJRIAS), peer-reviewed",
+      date: "Aug 2025",
+      bullets: [
+        "Built a BERT (TextRank), BART and T5 pipeline that runs on a single 12 GB GPU without fine-tuning, reaching 0.87 BERTScore F1 and 80% human-rated MCQ relevance.",
+      ],
+    },
   ],
+  skills: {
+    languages: "TypeScript, JavaScript (ES6+), Python, SQL, HTML5, CSS3",
+    frontend: "React 19, Next.js (App Router), Tailwind CSS, shadcn/ui, TanStack Query, TanStack Table, Zustand",
+    backend: "Node.js, Express.js, REST APIs, WebSockets (Socket.io), Mapbox Geocoding API",
+    architecture: "Role-based access control (RBAC), audit trails, server-side pagination, composable filters",
+    tooling: "Cypress (E2E), Git, GitHub, Vite, Vercel, Cloudflare, WordPress",
+    nlp: "Hugging Face Transformers (BERT, BART, T5), SpaCy, NLTK, Sentence Transformers, TextRank",
+  },
 };
